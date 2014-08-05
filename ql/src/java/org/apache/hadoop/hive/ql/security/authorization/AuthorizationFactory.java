@@ -54,7 +54,7 @@ public class AuthorizationFactory {
         AuthorizationFactory.class.getClassLoader(), new Class[]{itface}, invocation);
   }
 
-  public static interface AuthorizationExceptionHandler {
+  public interface AuthorizationExceptionHandler {
     void exception(Exception exception)
         throws AuthorizationException, HiveAuthzPluginException, HiveAccessControlException;
   }

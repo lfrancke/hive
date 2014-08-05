@@ -42,8 +42,8 @@ public interface PreExecute extends Hook {
    *          The user group security information.
    */
   @Deprecated
-  public void run(SessionState sess, Set<ReadEntity> inputs,
-      Set<WriteEntity> outputs, UserGroupInformation ugi)
+  void run(SessionState sess, Set<ReadEntity> inputs, Set<WriteEntity> outputs,
+    UserGroupInformation ugi)
     throws Exception;
 
 }

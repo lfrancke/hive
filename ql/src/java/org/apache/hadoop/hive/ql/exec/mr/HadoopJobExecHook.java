@@ -25,8 +25,8 @@ import org.apache.hadoop.mapred.Counters;
 
 @SuppressWarnings("deprecation")
 public interface HadoopJobExecHook {
-  
-  public boolean checkFatalErrors(Counters ctrs, StringBuilder errMsg);
-  public void logPlanProgress(SessionState ss) throws IOException;
-  
+
+  boolean checkFatalErrors(Counters ctrs, StringBuilder errMsg);
+  void logPlanProgress(SessionState ss) throws IOException;
+
 }

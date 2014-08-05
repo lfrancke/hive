@@ -30,17 +30,17 @@ import org.apache.hadoop.hive.ql.session.SessionState;
  */
 public interface HiveAuthenticationProvider extends Configurable{
 
-  public String getUserName();
+  String getUserName();
 
-  public List<String> getGroupNames();
+  List<String> getGroupNames();
 
-  public void destroy() throws HiveException;
+  void destroy() throws HiveException;
 
   /**
    * This function is meant to be used only for hive internal implementations of this interface.
    * SessionState is not a public interface.
    * @param ss SessionState that created this instance
    */
-  public void setSessionState(SessionState ss);
+  void setSessionState(SessionState ss);
 
 }

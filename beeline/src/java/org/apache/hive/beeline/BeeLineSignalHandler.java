@@ -26,10 +26,6 @@ package org.apache.hive.beeline;
 import java.sql.Statement;
 
 
-/**
- * BeeLineSignalHandler.
- *
- */
 public interface BeeLineSignalHandler {
-  public void setStatement(Statement stmt);
+  void setStatement(Statement stmt);
 }

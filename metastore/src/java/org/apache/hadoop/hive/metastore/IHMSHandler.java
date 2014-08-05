@@ -23,5 +23,5 @@ import org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore;
 
 public interface  IHMSHandler extends  ThriftHiveMetastore.Iface {
 
-  public abstract void setConf(Configuration conf);
+  void setConf(Configuration conf);
 }

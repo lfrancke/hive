@@ -120,10 +120,10 @@ public class TestStreamingSum {
 
   }
 
-  static interface TypeHandler<T, TW> {
-    public void set(T i, TW iw);
+  interface TypeHandler<T, TW> {
+    void set(T i, TW iw);
 
-    public T get(TW iw);
+    T get(TW iw);
 
     TypeHandler<Double, DoubleWritable> DoubleHandler = new TypeHandler<Double, DoubleWritable>() {
       public void set(Double d, DoubleWritable iw) {

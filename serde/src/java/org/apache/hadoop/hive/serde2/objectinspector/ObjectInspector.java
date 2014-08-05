@@ -37,13 +37,9 @@ package org.apache.hadoop.hive.serde2.objectinspector;
  */
 public interface ObjectInspector extends Cloneable {
 
-  /**
-   * Category.
-   *
-   */
-  public static enum Category {
+  enum Category {
     PRIMITIVE, LIST, MAP, STRUCT, UNION
-  };
+  }
 
   /**
    * Returns the name of the data type that is inspected by this

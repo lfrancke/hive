@@ -35,7 +35,7 @@ public interface MapJoinTableContainer {
    * for each key. "Old" HashMapWrapper will still create/retrieve new objects for java HashMap;
    * but the optimized one doesn't have to.
    */
-  public interface ReusableGetAdaptor {
+  interface ReusableGetAdaptor {
     /**
      * Changes current rows to which adaptor is referring to the rows corresponding to
      * the key represented by a VHKW object, and writers and batch used to interpret it.

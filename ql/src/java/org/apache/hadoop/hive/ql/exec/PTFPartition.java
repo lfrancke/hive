@@ -53,7 +53,7 @@ public class PTFPartition {
       throws HiveException {
     this(cfg, serDe, inputOI, outputOI, true);
   }
-  
+
   protected PTFPartition(Configuration cfg,
       SerDe serDe, StructObjectInspector inputOI,
       StructObjectInspector outputOI,
@@ -212,14 +212,14 @@ public class PTFPartition {
     public void reset() {
       idx = start;
     }
-  };
+  }
 
   /*
    * provide an Iterator on the rows in a Partiton.
    * Iterator exposes the index of the next location.
    * Client can invoke lead/lag relative to the next location.
    */
-  public static interface PTFPartitionIterator<T> extends Iterator<T> {
+  public interface PTFPartitionIterator<T> extends Iterator<T> {
     int getIndex();
 
     T lead(int amt) throws HiveException;
@@ -245,7 +245,7 @@ public class PTFPartition {
       throws HiveException {
     return new PTFPartition(cfg, serDe, inputOI, outputOI);
   }
-  
+
   public static PTFRollingPartition createRolling(Configuration cfg,
       SerDe serDe,
       StructObjectInspector inputOI,

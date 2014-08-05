@@ -36,11 +36,11 @@ public abstract class VectorAggregateExpression  implements Serializable {
   /**
    * Buffer interface to store aggregates.
    */
-  public static interface AggregationBuffer extends Serializable {
+  public interface AggregationBuffer extends Serializable {
     int getVariableSize();
 
     void reset();
-  };
+  }
 
   public abstract AggregationBuffer getNewAggregationBuffer() throws HiveException;
   public abstract void aggregateInput(AggregationBuffer agg, VectorizedRowBatch unit)

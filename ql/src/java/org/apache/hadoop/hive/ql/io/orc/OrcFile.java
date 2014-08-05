@@ -204,13 +204,13 @@ public final class OrcFile {
     return new ReaderImpl(path, options);
   }
 
-  public static interface WriterContext {
+  public interface WriterContext {
     Writer getWriter();
   }
 
-  public static interface WriterCallback {
-    public void preStripeWrite(WriterContext context) throws IOException;
-    public void preFooterWrite(WriterContext context) throws IOException;
+  public interface WriterCallback {
+    void preStripeWrite(WriterContext context) throws IOException;
+    void preFooterWrite(WriterContext context) throws IOException;
   }
 
   /**

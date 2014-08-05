@@ -54,7 +54,7 @@ public class FakeVectorRowBatchFromObjectIterables extends FakeVectorRowBatchBas
   /**
    * Helper interface for assigning values to primitive vector column types.
    */
-  private static interface ColumnVectorAssign {
+  private interface ColumnVectorAssign {
     void assign(
         ColumnVector columnVector,
         int row,

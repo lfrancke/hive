@@ -21,18 +21,19 @@ package org.apache.hive.ptest.execution.context;
 import org.apache.hive.ptest.execution.conf.Context;
 
 public interface ExecutionContextProvider {
-  static final String PRIVATE_KEY = "privateKey";
+  String PRIVATE_KEY = "privateKey";
 
-  public ExecutionContext createExecutionContext() throws CreateHostsFailedException, ServiceNotAvailableException;
+  ExecutionContext createExecutionContext()
+    throws CreateHostsFailedException, ServiceNotAvailableException;
 
-  public void replaceBadHosts(ExecutionContext executionContext)throws CreateHostsFailedException ;
+  void replaceBadHosts(ExecutionContext executionContext)throws CreateHostsFailedException ;
 
-  public void terminate(ExecutionContext executionContext);
+  void terminate(ExecutionContext executionContext);
 
-  public void close();
+  void close();
 
-  public interface Builder {
-    public ExecutionContextProvider build(Context context, String workingDirectory) throws Exception;
+  interface Builder {
+    ExecutionContextProvider build(Context context, String workingDirectory) throws Exception;
   }
 
 }

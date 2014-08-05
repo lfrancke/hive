@@ -52,9 +52,7 @@ public interface HiveSemanticAnalyzerHook extends Hook {
    * @return replacement AST (typically the same as the original AST unless the
    * entire tree had to be replaced; must not be null)
    */
-  public ASTNode preAnalyze(
-    HiveSemanticAnalyzerHookContext context,
-    ASTNode ast) throws SemanticException;
+  ASTNode preAnalyze(HiveSemanticAnalyzerHookContext context, ASTNode ast) throws SemanticException;
 
   /**
    * Invoked after Hive performs its own semantic analysis on a
@@ -66,7 +64,6 @@ public interface HiveSemanticAnalyzerHook extends Hook {
    * @param rootTasks root tasks produced by semantic analysis;
    * the hook is free to modify this list or its contents
    */
-  public void postAnalyze(
-    HiveSemanticAnalyzerHookContext context,
+  void postAnalyze(HiveSemanticAnalyzerHookContext context,
     List<Task<? extends Serializable>> rootTasks) throws SemanticException;
 }

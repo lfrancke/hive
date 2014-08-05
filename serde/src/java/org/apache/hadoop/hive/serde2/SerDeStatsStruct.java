@@ -23,6 +23,6 @@ public interface SerDeStatsStruct {
   /**
    * Rerurns the serialized size of the object.
    */
-  public long getRawDataSerializedSize();
+  long getRawDataSerializedSize();
 
 }

@@ -131,7 +131,7 @@ public interface Reader {
   /**
    * Options for creating a RecordReader.
    */
-  public static class Options {
+  class Options {
     private boolean[] include;
     private long offset = 0;
     private long length = Long.MAX_VALUE;

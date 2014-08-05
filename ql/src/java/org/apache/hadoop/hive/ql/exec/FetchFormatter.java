@@ -40,7 +40,7 @@ public interface FetchFormatter<T> extends Closeable {
 
   T convert(Object row, ObjectInspector rowOI) throws Exception;
 
-  public static class ThriftFormatter implements FetchFormatter<Object> {
+  class ThriftFormatter implements FetchFormatter<Object> {
 
     int protocol;
 

@@ -26,6 +26,6 @@ public interface HivePartitioner<K2, V2> extends Partitioner<K2, V2> {
   /**
    * Get the final bucket within a partition.
    */
-  public int getBucket(K2 key, V2 value, int numBuckets);
+  int getBucket(K2 key, V2 value, int numBuckets);
 }
 

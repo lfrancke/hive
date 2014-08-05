@@ -166,19 +166,19 @@ public final class BytesBytesMultiHashMap {
   }
 
   /** The source of keys and values to put into hashtable; avoids byte copying. */
-  public static interface KvSource {
+  public interface KvSource {
     /** Write key into output. */
-    public void writeKey(RandomAccessOutput dest) throws SerDeException;
+    void writeKey(RandomAccessOutput dest) throws SerDeException;
 
     /** Write value into output. */
-    public void writeValue(RandomAccessOutput dest) throws SerDeException;
+    void writeValue(RandomAccessOutput dest) throws SerDeException;
 
     /**
      * Provide updated value for state byte for a key.
      * @param previousValue Previous value; null if this is the first call per key.
      * @return The updated value.
      */
-    public byte updateStateByte(Byte previousValue);
+    byte updateStateByte(Byte previousValue);
   }
 
   /**

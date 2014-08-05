@@ -48,16 +48,16 @@ public class LocalCommand {
       return exitCode;
     }
   }
-  
+
   public void kill() {
     synchronized (process) {
       process.destroy();
     }
   }
 
-  public static interface OutputPolicy {
-    public void handleOutput(String line);
-    public void handleThrowable(Throwable throwable);
+  public interface OutputPolicy {
+    void handleOutput(String line);
+    void handleThrowable(Throwable throwable);
   }
   public static class CollectLogPolicy extends CollectPolicy {
     private final Logger logger;

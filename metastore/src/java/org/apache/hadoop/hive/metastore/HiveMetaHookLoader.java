@@ -33,7 +33,5 @@ public interface HiveMetaHookLoader {
    *
    * @return hook, or null if none registered
    */
-  public HiveMetaHook getHook(Table tbl) throws MetaException;
+  HiveMetaHook getHook(Table tbl) throws MetaException;
 }
-
-// End HiveMetaHookLoader.java

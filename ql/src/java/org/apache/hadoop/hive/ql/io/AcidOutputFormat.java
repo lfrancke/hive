@@ -39,7 +39,7 @@ public interface AcidOutputFormat<V> extends HiveOutputFormat<NullWritable, V> {
   /**
    * Options to control how the files are written
    */
-  public static class Options {
+  class Options {
     private final Configuration configuration;
     private FileSystem fs;
     private ObjectInspector inspector;
@@ -229,8 +229,7 @@ public interface AcidOutputFormat<V> extends HiveOutputFormat<NullWritable, V> {
    * @param options the options for the writer
    * @return the RecordUpdater for the output file
    */
-  public RecordUpdater getRecordUpdater(Path path,
-                                        Options options) throws IOException;
+  RecordUpdater getRecordUpdater(Path path, Options options) throws IOException;
 
   /**
    * Create a raw writer for ACID events.
@@ -240,6 +239,5 @@ public interface AcidOutputFormat<V> extends HiveOutputFormat<NullWritable, V> {
    * @return a record writer
    * @throws IOException
    */
-  public RecordWriter getRawRecordWriter(Path path,
-                                           Options options) throws IOException;
+  RecordWriter getRawRecordWriter(Path path, Options options) throws IOException;
 }

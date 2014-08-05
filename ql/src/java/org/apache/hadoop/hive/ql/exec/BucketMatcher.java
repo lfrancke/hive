@@ -25,12 +25,12 @@ import org.apache.hadoop.fs.Path;
 
 public interface BucketMatcher {
 
-  public List<Path> getAliasBucketFiles(String currentInputFile, String refTableAlias, String alias);
+  List<Path> getAliasBucketFiles(String currentInputFile, String refTableAlias, String alias);
 
-  public void setAliasBucketFileNameMapping(
-      Map<String,Map<String,List<String>>> aliasBucketFileNameMapping);
+  void setAliasBucketFileNameMapping(
+    Map<String, Map<String, List<String>>> aliasBucketFileNameMapping);
 
-  public Map<String, Integer> getBucketFileNameMapping();
+  Map<String, Integer> getBucketFileNameMapping();
 
-  public void setBucketFileNameMapping(Map<String, Integer> bucketFileNameMapping);
+  void setBucketFileNameMapping(Map<String, Integer> bucketFileNameMapping);
 }

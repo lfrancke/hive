@@ -21,36 +21,36 @@ package org.apache.hadoop.hive.ql.exec.vector;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 
 /**
- * 
+ *
  */
 public class VectorUtilBatchObjectPool<T extends Object> {
   private final T[] buffer;
-  
+
   /**
    * Head of the pool. This is where where we should insert the next
-   * object returned to the pool  
+   * object returned to the pool
    */
   private int head = 0;
-  
+
   /**
    * Count of available elements. They are behind the head, with wrap-around
    * The head itself is not free, is null
    */
   private int count = 0;
-  
-  private IAllocator<T> allocator; 
-  
-  public static interface IAllocator<T> {
-    public T alloc() throws HiveException;
-    public void free(T t);
+
+  private IAllocator<T> allocator;
+
+  public interface IAllocator<T> {
+    T alloc() throws HiveException;
+    void free(T t);
   }
-  
+
   @SuppressWarnings("unchecked")
   public VectorUtilBatchObjectPool(int size, IAllocator<T> allocator) {
     buffer = (T[]) new Object[size];
     this.allocator = allocator;
   }
-  
+
   public T getFromPool() throws HiveException {
     T ret = null;
     if (count == 0) {
@@ -63,10 +63,10 @@ public class VectorUtilBatchObjectPool<T extends Object> {
       buffer[tail] = null;
       --count;
     }
-    
+
     return ret;
   }
-  
+
   public void putInPool(T object) {
     if (count < buffer.length) {
       buffer[head] = object;

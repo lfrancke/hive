@@ -164,7 +164,7 @@ public class AcidUtils {
     return result;
   }
 
-  public static interface Directory {
+  public interface Directory {
 
     /**
      * Get the base directory.

@@ -22,6 +22,6 @@ import java.util.Map;
 
 public interface ClientStatsPublisher {
 
-  public void run(Map<String, Double> counterValues, String jobID);
+  void run(Map<String, Double> counterValues, String jobID);
 
 }

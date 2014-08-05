@@ -49,8 +49,8 @@ public class TopNHash {
    * For interaction between operator and top-n hash.
    * Currently only used to forward key/values stored in hash.
    */
-  public static interface BinaryCollector {
-    public void collect(byte[] key, byte[] value, int hash) throws IOException;
+  public interface BinaryCollector {
+    void collect(byte[] key, byte[] value, int hash) throws IOException;
   }
 
   public static final int FORWARD = -1; // Forward the row to reducer as is.
@@ -202,7 +202,7 @@ public class TopNHash {
     Integer collisionIndex = indexes.store(index);
     if (null != collisionIndex) {
       /*
-       * since there is a collision index will be used for the next value 
+       * since there is a collision index will be used for the next value
        * so have the map point back to original index.
        */
       if ( indexes instanceof HashForGroup ) {
@@ -286,7 +286,7 @@ public class TopNHash {
   public int getVectorizedKeyHashCode(int batchIndex) {
     return hashes[batchIndexToResult[batchIndex]];
   }
-  
+
   /**
    * Stores the value for the key in the heap.
    * @param index The index, either from tryStoreKey or from tryStoreVectorizedKey result.
@@ -377,7 +377,7 @@ public class TopNHash {
     }
     excluded = 0;
   }
-  
+
   private interface IndexStore {
     int size();
     /**

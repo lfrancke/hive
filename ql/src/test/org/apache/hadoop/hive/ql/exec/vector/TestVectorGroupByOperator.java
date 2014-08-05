@@ -2028,7 +2028,7 @@ public class TestVectorGroupByOperator {
   }
 
 
-  public static interface Validator {
+  public interface Validator {
     void validate (String key, Object expected, Object result);
   };
 

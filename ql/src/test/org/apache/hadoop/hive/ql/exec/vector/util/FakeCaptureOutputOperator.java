@@ -36,17 +36,17 @@ import org.apache.hadoop.hive.ql.plan.api.OperatorType;
 public class FakeCaptureOutputOperator extends Operator<FakeCaptureOutputDesc>
   implements Serializable {
   private static final long serialVersionUID = 1L;
-  
+
   public interface OutputInspector {
-    public void inspectRow(Object row, int tag) throws HiveException;
+    void inspectRow(Object row, int tag) throws HiveException;
   }
-  
+
   private OutputInspector outputInspector;
-  
+
   public void setOutputInspector(OutputInspector outputInspector) {
     this.outputInspector = outputInspector;
   }
-  
+
   public OutputInspector getOutputInspector() {
     return outputInspector;
   }
@@ -67,7 +67,7 @@ public class FakeCaptureOutputOperator extends Operator<FakeCaptureOutputDesc>
     return out;
   }
 
-  
+
   public List<Object> getCapturedRows() {
     return rows;
   }

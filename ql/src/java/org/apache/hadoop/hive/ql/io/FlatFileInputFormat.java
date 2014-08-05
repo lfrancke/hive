@@ -70,7 +70,7 @@ public class FlatFileInputFormat<T> extends
    * not have a way of configuring the actual Java class being
    * serialized/deserialized.
    */
-  public static interface SerializationContext<S> extends Configurable {
+  public interface SerializationContext<S> extends Configurable {
 
     /**
      * An {@link Serialization} object for objects of type S.

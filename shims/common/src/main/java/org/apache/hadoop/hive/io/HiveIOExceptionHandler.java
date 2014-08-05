@@ -36,17 +36,13 @@ public interface HiveIOExceptionHandler {
    * @param e
    * @return RecordReader
    */
-  public RecordReader<?, ?> handleRecordReaderCreationException(Exception e)
+  RecordReader<?, ?> handleRecordReaderCreationException(Exception e)
       throws IOException;
 
   /**
    * process exceptions thrown when calling rr's next
-   *
-   * @param e
-   * @param result
-   * @throws IOException
    */
-  public void handleRecorReaderNextException(Exception e,
-      HiveIOExceptionNextHandleResult result) throws IOException;
+  void handleRecorReaderNextException(Exception e, HiveIOExceptionNextHandleResult result)
+    throws IOException;
 
 }

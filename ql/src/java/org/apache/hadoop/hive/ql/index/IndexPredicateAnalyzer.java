@@ -265,7 +265,7 @@ public class IndexPredicateAnalyzer {
     this.acceptsFields = acceptsFields;
   }
 
-  public static interface FieldValidator {
+  public interface FieldValidator {
     boolean validate(ExprNodeFieldDesc exprNodeDesc);
   }
 

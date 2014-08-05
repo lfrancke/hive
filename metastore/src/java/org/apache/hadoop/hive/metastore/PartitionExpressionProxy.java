@@ -33,7 +33,7 @@ public interface PartitionExpressionProxy {
    * @param expr Serialized expression.
    * @return The filter string.
    */
-  public String convertExprToFilter(byte[] expr) throws MetaException;
+  String convertExprToFilter(byte[] expr) throws MetaException;
 
   /**
    * Filters the partition names via serialized Hive expression.
@@ -43,6 +43,6 @@ public interface PartitionExpressionProxy {
    * @param partitionNames Partition names; the list is modified in place.
    * @return Whether there were any unknown partitions preserved in the name list.
    */
-  public boolean filterPartitionsByExpr(List<String> columnNames, byte[] expr,
-      String defaultPartitionName, List<String> partitionNames) throws MetaException;
+  boolean filterPartitionsByExpr(List<String> columnNames, byte[] expr, String defaultPartitionName,
+    List<String> partitionNames) throws MetaException;
 }

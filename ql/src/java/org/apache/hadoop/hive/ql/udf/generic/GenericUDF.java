@@ -46,13 +46,13 @@ import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorUtils;
 public abstract class GenericUDF implements Closeable {
 
   /**
-   * A Defered Object allows us to do lazy-evaluation and short-circuiting.
+   * A deferred Object allows us to do lazy-evaluation and short-circuiting.
    * GenericUDF use DeferedObject to pass arguments.
    */
-  public static interface DeferredObject {
+  public interface DeferredObject {
     void prepare(int version) throws HiveException;
     Object get() throws HiveException;
-  };
+  }
 
   /**
    * A basic dummy implementation of DeferredObject which just stores a Java

@@ -26,12 +26,12 @@ public interface ObjectCache {
    * @param key
    * @param value
    */
-  public void cache(String key, Object value);
+  void cache(String key, Object value);
 
   /**
    * Retrieve object from cache.
    * @param key
    * @return the last cached object with the key, null if none.
    */
-  public Object retrieve(String key);
+  Object retrieve(String key);
 }

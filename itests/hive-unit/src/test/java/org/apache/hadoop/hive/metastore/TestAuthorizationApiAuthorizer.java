@@ -71,7 +71,7 @@ public abstract class TestAuthorizationApiAuthorizer {
   }
 
   interface FunctionInvoker {
-    public void invoke() throws Exception;
+    void invoke() throws Exception;
   }
 
   /**

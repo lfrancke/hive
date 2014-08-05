@@ -21,5 +21,5 @@ package org.apache.hive.ptest.execution;
 import org.apache.hive.ptest.execution.conf.Host;
 
 public interface HostExecutorBuilder {
-  public HostExecutor build(Host host);
+  HostExecutor build(Host host);
 }

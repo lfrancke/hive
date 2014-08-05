@@ -78,7 +78,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
    * State.
    *
    */
-  public static enum State {
+  public enum State {
     UNINIT, // initialize() has not been called
     INIT, // initialize() has been called and close() has not been called,
     // or close() has been called but one of its parent is not closed.
@@ -827,7 +827,7 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
    * OperatorFunc.
    *
    */
-  public static interface OperatorFunc {
+  public interface OperatorFunc {
     void func(Operator<? extends OperatorDesc> op);
   }
 
@@ -1254,15 +1254,15 @@ public abstract class Operator<T extends OperatorDesc> implements Serializable,C
     }
     return null;
   }
-  
+
   public OpTraits getOpTraits() {
     if (conf != null) {
       return conf.getOpTraits();
     }
-    
+
     return null;
   }
-  
+
   public void setOpTraits(OpTraits metaInfo) {
     if (LOG.isDebugEnabled()) {
       LOG.debug("Setting traits ("+metaInfo+") on "+this);

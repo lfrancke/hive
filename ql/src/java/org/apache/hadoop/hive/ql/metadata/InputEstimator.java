@@ -33,7 +33,7 @@ public interface InputEstimator {
    */
   Estimation estimate(JobConf job, TableScanOperator ts, long remaining) throws HiveException;
 
-  public static class Estimation {
+  class Estimation {
 
     private int rowCount;
     private long totalLength;

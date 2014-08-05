@@ -91,7 +91,7 @@ public class MapJoinBytesTableContainer implements MapJoinTableContainer {
         .getLazyBinaryStructObjectInspector(colNames, colOis);
   }
 
-  private static interface KeyValueHelper extends BytesBytesMultiHashMap.KvSource {
+  private interface KeyValueHelper extends BytesBytesMultiHashMap.KvSource {
     void setKeyValue(Writable key, Writable val) throws SerDeException;
   }
 

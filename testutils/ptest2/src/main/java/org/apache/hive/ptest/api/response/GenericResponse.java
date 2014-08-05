@@ -21,5 +21,5 @@ package org.apache.hive.ptest.api.response;
 import org.apache.hive.ptest.api.Status;
 
 public interface GenericResponse {
-  public Status getStatus();
+  Status getStatus();
 }

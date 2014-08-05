@@ -17,13 +17,13 @@
  */
 
 package org.apache.hadoop.hive.ql.index.bitmap;
-import org.apache.hadoop.hive.ql.plan.ExprNodeDesc;
 
 /**
  * Generic interface to representations of queries on bitmap indexes
  */
 public interface BitmapQuery {
-  public String getAlias();
 
-  public String toString();
+  String getAlias();
+
+  String toString();
 }

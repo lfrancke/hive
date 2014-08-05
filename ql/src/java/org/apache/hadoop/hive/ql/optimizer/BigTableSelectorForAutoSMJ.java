@@ -30,7 +30,7 @@ import org.apache.hadoop.hive.ql.parse.SemanticException;
  * decide the big table based on size or position of the tables.
  */
 public interface BigTableSelectorForAutoSMJ {
-  public int getBigTablePosition(ParseContext parseContext, JoinOperator joinOp,
-      Set<Integer> joinCandidates)
+  int getBigTablePosition(ParseContext parseContext, JoinOperator joinOp,
+    Set<Integer> joinCandidates)
     throws SemanticException;
 }

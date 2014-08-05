@@ -25,6 +25,6 @@ import org.apache.hadoop.conf.Configurable;
  * HiveDriverRunHook.
  */
 public interface HiveDriverRunHookContext extends Configurable{
-  public String getCommand();
-  public void setCommand(String command);
+  String getCommand();
+  void setCommand(String command);
 }

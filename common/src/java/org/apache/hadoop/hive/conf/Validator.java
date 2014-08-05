@@ -31,7 +31,7 @@ public interface Validator {
 
   String validate(String value);
 
-  static class StringSet implements Validator {
+  class StringSet implements Validator {
 
     private final Set<String> expected = new LinkedHashSet<String>();
 
@@ -50,7 +50,7 @@ public interface Validator {
     }
   }
 
-  static enum RANGE_TYPE {
+  enum RANGE_TYPE {
     INT {
       @Override
       protected boolean inRange(String value, Object lower, Object upper) {
@@ -90,7 +90,7 @@ public interface Validator {
     protected abstract boolean inRange(String value, Object lower, Object upper);
   }
 
-  static class RangeValidator implements Validator {
+  class RangeValidator implements Validator {
 
     private final RANGE_TYPE type;
     private final Object lower, upper;
@@ -117,7 +117,7 @@ public interface Validator {
     }
   }
 
-  static class PatternSet implements Validator {
+  class PatternSet implements Validator {
 
     private final List<Pattern> expected = new ArrayList<Pattern>();
 
@@ -141,7 +141,7 @@ public interface Validator {
     }
   }
 
-  static class RatioValidator implements Validator {
+  class RatioValidator implements Validator {
 
     @Override
     public String validate(String value) {

@@ -31,21 +31,21 @@ import java.util.NoSuchElementException;
 /**
  * This class attempts to provide a simple framework for writing Hive map/reduce
  * tasks in java.
- * 
+ *
  * The main benefit is that it deals with grouping the keys together for reduce
  * tasks.
- * 
+ *
  * Additionally, it deals with all system io... and provides something closer to
  * the hadoop m/r.
- * 
+ *
  * As an example, here's the wordcount reduce:
- * 
+ *
  * new GenericMR().reduce(System.in, System.out, new Reducer() { public void
  * reduce(String key, Iterator<String[]> records, Output output) throws
  * Exception { int count = 0;
- * 
+ *
  * while (records.hasNext()) { count += Integer.parseInt(records.next()[1]); }
- * 
+ *
  * output.collect(new String[] { key, String.valueOf(count) }); }});
  */
 public final class GenericMR {
@@ -96,7 +96,7 @@ public final class GenericMR {
     }
   }
 
-  private static interface RecordProcessor {
+  private interface RecordProcessor {
     void processNext(final RecordReader reader, final Output output) throws Exception;
   }
 
@@ -169,7 +169,7 @@ public final class GenericMR {
 
     private void close() throws Exception {
       reader.close();
-      
+
     }
   }
 

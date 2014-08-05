@@ -38,12 +38,12 @@ import org.apache.hadoop.hive.ql.security.authorization.HiveAuthorizationProvide
 @Evolving
 public interface HiveAuthorizer {
 
-  public enum VERSION { V1 };
+  enum VERSION { V1 };
 
   /**
    * @return version of HiveAuthorizer interface that is implemented by this instance
    */
-  public VERSION getVersion();
+  VERSION getVersion();
 
   /**
    * Grant privileges for principals on the object
@@ -192,7 +192,7 @@ public interface HiveAuthorizer {
    * or other parameters related to hive security
    * @param hiveConf
    */
-  public void applyAuthorizationConfigPolicy(HiveConf hiveConf);
+  void applyAuthorizationConfigPolicy(HiveConf hiveConf);
 
 }
 

@@ -30,7 +30,7 @@ import org.apache.hadoop.mapred.JobConf;
  */
 public interface ContentSummaryInputFormat {
 
-  public ContentSummary getContentSummary(Path p, JobConf job)
+  ContentSummary getContentSummary(Path p, JobConf job)
       throws IOException;
 
 }

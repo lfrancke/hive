@@ -19,10 +19,10 @@
 package org.apache.hive.ptest.execution.ssh;
 
 public interface RemoteCommandResult {
-  public int getExitCode();
-  public Exception getException();
-  public String getOutput();
-  public String getUser();
-  public String getHost();
-  public int getInstance();
+  int getExitCode();
+  Exception getException();
+  String getOutput();
+  String getUser();
+  String getHost();
+  int getInstance();
 }

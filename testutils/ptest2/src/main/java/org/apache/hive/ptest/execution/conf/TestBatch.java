@@ -20,12 +20,12 @@ package org.apache.hive.ptest.execution.conf;
 
 public interface TestBatch {
 
-  public String getTestArguments();
-  
-  public String getTestClass();
+  String getTestArguments();
 
-  public String getName();
+  String getTestClass();
 
-  public boolean isParallel();
+  String getName();
+
+  boolean isParallel();
 
 }
