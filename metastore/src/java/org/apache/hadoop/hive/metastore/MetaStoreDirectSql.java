@@ -739,7 +739,7 @@ class MetaStoreDirectSql {
       return filterBuffer.hasError();
     }
 
-    private static enum FilterType {
+    private enum FilterType {
       Integral,
       String,
       Date,

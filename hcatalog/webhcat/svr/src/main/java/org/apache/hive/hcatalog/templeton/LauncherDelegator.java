@@ -47,7 +47,7 @@ import org.apache.hive.hcatalog.templeton.tool.ZooKeeperStorage;
 public class LauncherDelegator extends TempletonDelegator {
   private static final Log LOG = LogFactory.getLog(LauncherDelegator.class);
   protected String runAs = null;
-  static public enum JobType {JAR, STREAMING, PIG, HIVE, SQOOP}
+  public enum JobType {JAR, STREAMING, PIG, HIVE, SQOOP}
   private boolean secureMeatastoreAccess = false;
   private final String HIVE_SHIMS_FILENAME_PATTERN = ".*hive-shims.*";
 
@@ -90,7 +90,7 @@ public class LauncherDelegator extends TempletonDelegator {
       if (id == null) {
         throw new QueueException("Unable to get job id");
       }
-      
+
       registerJob(id, user, callback, userArgs);
 
       return new EnqueueBean(id);
@@ -246,7 +246,7 @@ public class LauncherDelegator extends TempletonDelegator {
   }
   /**
    * This is called by subclasses when they determined that the sumbmitted job requires
-   * metastore access (e.g. Pig job that uses HCatalog).  This then determines if 
+   * metastore access (e.g. Pig job that uses HCatalog).  This then determines if
    * secure access is required and causes TempletonControllerJob to set up a delegation token.
    * @see TempletonControllerJob
    */

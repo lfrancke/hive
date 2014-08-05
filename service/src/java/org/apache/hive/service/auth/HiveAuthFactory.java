@@ -47,7 +47,7 @@ import org.slf4j.LoggerFactory;
 public class HiveAuthFactory {
   private static final Logger LOG = LoggerFactory.getLogger(HiveAuthFactory.class);
 
-  public static enum AuthTypes {
+  public enum AuthTypes {
     NOSASL("NOSASL"),
     NONE("NONE"),
     LDAP("LDAP"),

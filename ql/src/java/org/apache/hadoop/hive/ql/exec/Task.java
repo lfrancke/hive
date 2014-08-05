@@ -95,7 +95,7 @@ public abstract class Task<T extends Serializable> implements Serializable, Node
 
   private transient boolean fetchSource;
 
-  public static enum FeedType {
+  public enum FeedType {
     DYNAMIC_PARTITIONS, // list of dynamic partitions
   }
 

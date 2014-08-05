@@ -31,7 +31,7 @@ public class AlterDatabaseDesc extends DDLDesc implements Serializable {
   private static final long serialVersionUID = 1L;
 
   // Only altering the database property and owner is currently supported
-  public static enum ALTER_DB_TYPES {
+  public enum ALTER_DB_TYPES {
     ALTER_PROPERTY, ALTER_OWNER
   }
 

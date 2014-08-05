@@ -534,8 +534,7 @@ public class WindowingSpec {
 
   }
 
-  public static enum Direction
-  {
+  public enum Direction {
     PRECEDING,
     CURRENT,
     FOLLOWING

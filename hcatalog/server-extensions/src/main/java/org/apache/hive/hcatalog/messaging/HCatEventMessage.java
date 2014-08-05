@@ -30,7 +30,7 @@ public abstract class HCatEventMessage {
   /**
    * Enumeration of all supported types of Metastore operations.
    */
-  public static enum EventType {
+  public enum EventType {
 
     CREATE_DATABASE(HCatConstants.HCAT_CREATE_DATABASE_EVENT),
     DROP_DATABASE(HCatConstants.HCAT_DROP_DATABASE_EVENT),

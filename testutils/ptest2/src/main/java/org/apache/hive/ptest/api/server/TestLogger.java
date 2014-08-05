@@ -42,14 +42,14 @@ public class TestLogger extends MarkerIgnoringBase {
     mDateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
   }
 
-  public static enum LEVEL {
+  public enum LEVEL {
     TRACE(1),
     DEBUG(2),
     INFO(3),
     WARN(4),
     ERROR(5);
     private int index;
-    private LEVEL(int index) {
+    LEVEL(int index) {
       this.index = index;
     }
   }

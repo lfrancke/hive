@@ -38,11 +38,7 @@ public class FilterOperator extends Operator<FilterDesc> implements
 
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Counter.
-   *
-   */
-  public static enum Counter {
+  public enum Counter {
     FILTERED, PASSED
   }
 

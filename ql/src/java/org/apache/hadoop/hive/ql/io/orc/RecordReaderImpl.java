@@ -2180,7 +2180,7 @@ class RecordReaderImpl implements RecordReader {
         bufferSize));
   }
 
-  static enum Location {
+  enum Location {
     BEFORE, MIN, MIDDLE, MAX, AFTER
   }
 

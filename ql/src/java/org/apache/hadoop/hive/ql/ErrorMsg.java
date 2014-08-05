@@ -572,20 +572,20 @@ public enum ErrorMsg {
     return error.getSQLState();
   }
 
-  private ErrorMsg(int errorCode, String mesg) {
+  ErrorMsg(int errorCode, String mesg) {
     this(errorCode, mesg, "42000", false);
   }
 
-  private ErrorMsg(int errorCode, String mesg, boolean format) {
+  ErrorMsg(int errorCode, String mesg, boolean format) {
     // 42000 is the generic SQLState for syntax error.
     this(errorCode, mesg, "42000", format);
   }
 
-  private ErrorMsg(int errorCode, String mesg, String sqlState) {
+  ErrorMsg(int errorCode, String mesg, String sqlState) {
     this(errorCode, mesg, sqlState, false);
   }
 
-  private ErrorMsg(int errorCode, String mesg, String sqlState, boolean format) {
+  ErrorMsg(int errorCode, String mesg, String sqlState, boolean format) {
     this.errorCode = errorCode;
     this.mesg = mesg;
     this.sqlState = sqlState;

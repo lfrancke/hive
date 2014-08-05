@@ -70,7 +70,7 @@ public class IOContext {
   // The class name of the generic UDF being used by the filter
   String genericUDFClassName = null;
 
-  public static enum Comparison {
+  public enum Comparison {
     GREATER,
     LESS,
     EQUAL,

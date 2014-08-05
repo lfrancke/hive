@@ -60,11 +60,7 @@ public class ScriptOperator extends Operator<ScriptDesc> implements
 
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Counter.
-   *
-   */
-  public static enum Counter {
+  public enum Counter {
     DESERIALIZE_ERRORS, SERIALIZE_ERRORS
   }
 

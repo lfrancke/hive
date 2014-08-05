@@ -70,16 +70,13 @@ public class RoleDDLDesc extends DDLDesc implements Serializable {
     return roleShowRolePrincipals;
   }
 
-  public static enum RoleOperation {
+  public enum RoleOperation {
     DROP_ROLE("drop_role"), CREATE_ROLE("create_role"), SHOW_ROLE_GRANT("show_role_grant"),
     SHOW_ROLES("show_roles"), SET_ROLE("set_role"), SHOW_CURRENT_ROLE("show_current_role"),
     SHOW_ROLE_PRINCIPALS("show_role_principals");
     private String operationName;
 
-    private RoleOperation() {
-    }
-
-    private RoleOperation(String operationName) {
+    RoleOperation(String operationName) {
       this.operationName = operationName;
     }
 

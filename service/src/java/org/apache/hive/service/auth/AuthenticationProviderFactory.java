@@ -21,7 +21,7 @@ import javax.security.sasl.AuthenticationException;
 
 public class AuthenticationProviderFactory {
 
-  public static enum AuthMethods {
+  public enum AuthMethods {
     LDAP("LDAP"),
     PAM("PAM"),
     CUSTOM("CUSTOM"),

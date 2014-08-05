@@ -754,11 +754,7 @@ public class SessionState {
     }
   }
 
-  /**
-   * ResourceType.
-   *
-   */
-  public static enum ResourceType {
+  public enum ResourceType {
     FILE,
 
     JAR {

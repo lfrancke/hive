@@ -55,7 +55,7 @@ public class RSyncCommand extends AbstractSSHCommand<RSyncResult> {
         + getHost() + ", getInstance()=" + getInstance() + "]";
   }
 
-  public static enum Type {
+  public enum Type {
     FROM_LOCAL(),
     TO_LOCAL()
   }

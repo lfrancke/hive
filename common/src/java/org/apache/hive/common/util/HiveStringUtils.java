@@ -51,6 +51,7 @@ import org.apache.hadoop.io.Text;
 @InterfaceStability.Unstable
 public class HiveStringUtils {
 
+
   /**
    * Priority of the StringUtils shutdown hook.
    */
@@ -636,13 +637,13 @@ public class HiveStringUtils {
     catch(UnknownHostException uhe) {return "" + uhe;}
   }
 
-  
+
   /**
    * The traditional binary prefixes, kilo, mega, ..., exa,
    * which can be represented by a 64-bit integer.
    * TraditionalBinaryPrefix symbol are case insensitive.
    */
-  public static enum TraditionalBinaryPrefix {
+  public enum TraditionalBinaryPrefix {
     KILO(1024),
     MEGA(KILO.value << 10),
     GIGA(MEGA.value << 10),

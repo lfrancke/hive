@@ -68,7 +68,7 @@ public class PTFInvocationSpec {
     public abstract PTFQueryInputSpec getQueryInput();
   }
 
-  public static enum PTFQueryInputType {
+  public enum PTFQueryInputType {
     TABLE,
     SUBQUERY,
     PTFCOMPONENT,
@@ -482,7 +482,7 @@ public class PTFInvocationSpec {
     }
   }
 
-  public static enum Order
+  public enum Order
   {
     ASC,
     DESC

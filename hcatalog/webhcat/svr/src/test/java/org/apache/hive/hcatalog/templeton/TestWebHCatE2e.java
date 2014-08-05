@@ -263,7 +263,7 @@ public class TestWebHCatE2e {
       return methodName + " " + submittedURL + " " + responseBody;
     }
   }
-  private static enum HTTP_METHOD_TYPE {GET, POST, DELETE, PUT}
+  private enum HTTP_METHOD_TYPE {GET, POST, DELETE, PUT}
   private static MethodCallRetVal doHttpCall(String uri, HTTP_METHOD_TYPE type) throws IOException {
     return doHttpCall(uri, type, null, null);
   }

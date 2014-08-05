@@ -43,7 +43,7 @@ public class AlterTableDesc extends DDLDesc implements Serializable {
    * alterTableTypes.
    *
    */
-  public static enum AlterTableTypes {
+  public enum AlterTableTypes {
     RENAME, ADDCOLS, REPLACECOLS, ADDPROPS, DROPPROPS, ADDSERDE, ADDSERDEPROPS,
     ADDFILEFORMAT, ADDCLUSTERSORTCOLUMN, RENAMECOLUMN, ADDPARTITION,
     TOUCH, ARCHIVE, UNARCHIVE, ALTERPROTECTMODE, ALTERPARTITIONPROTECTMODE,
@@ -51,7 +51,7 @@ public class AlterTableDesc extends DDLDesc implements Serializable {
     ALTERBUCKETNUM, ALTERPARTITION, COMPACT
   }
 
-  public static enum ProtectModeType {
+  public enum ProtectModeType {
     NO_DROP, OFFLINE, READ_ONLY, NO_DROP_CASCADE
   }
 

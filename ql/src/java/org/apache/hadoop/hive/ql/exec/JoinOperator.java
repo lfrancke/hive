@@ -44,11 +44,7 @@ public class JoinOperator extends CommonJoinOperator<JoinDesc> implements
 
   private transient SkewJoinHandler skewJoinKeyContext = null;
 
-  /**
-   * SkewkeyTableCounter.
-   *
-   */
-  public static enum SkewkeyTableCounter {
+  public enum SkewkeyTableCounter {
     SKEWJOINFOLLOWUPJOBS
   }
 

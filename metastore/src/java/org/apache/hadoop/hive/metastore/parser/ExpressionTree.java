@@ -68,13 +68,13 @@ public class ExpressionTree {
     private final String sqlOp;
 
     // private constructor
-    private Operator(String op){
+    Operator(String op){
       this.op = op;
       this.jdoOp = op;
       this.sqlOp = op;
     }
 
-    private Operator(String op, String jdoOp, String sqlOp){
+    Operator(String op, String jdoOp, String sqlOp){
       this.op = op;
       this.jdoOp = jdoOp;
       this.sqlOp = sqlOp;

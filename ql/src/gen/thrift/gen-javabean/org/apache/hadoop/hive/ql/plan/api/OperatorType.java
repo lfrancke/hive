@@ -36,7 +36,7 @@ public enum OperatorType implements org.apache.thrift.TEnum {
 
   private final int value;
 
-  private OperatorType(int value) {
+  OperatorType(int value) {
     this.value = value;
   }
 
@@ -51,7 +51,7 @@ public enum OperatorType implements org.apache.thrift.TEnum {
    * Find a the enum type by its integer value, as defined in the Thrift IDL.
    * @return null if the value is not found.
    */
-  public static OperatorType findByValue(int value) { 
+  public static OperatorType findByValue(int value) {
     switch (value) {
       case 0:
         return JOIN;

@@ -27,7 +27,7 @@ import org.apache.hadoop.hive.metastore.HiveMetaStore.HMSHandler;
 
 public abstract class PreEventContext {
 
-  public static enum PreEventType {
+  public enum PreEventType {
     CREATE_TABLE,
     DROP_TABLE,
     ALTER_TABLE,

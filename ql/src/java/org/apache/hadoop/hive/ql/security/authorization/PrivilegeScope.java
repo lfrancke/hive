@@ -26,15 +26,15 @@ import java.util.EnumSet;
  * db-level only, some are global, and some are table only.
  */
 public enum PrivilegeScope {
-  
-  USER_LEVEL_SCOPE((short) 0x01), 
-  DB_LEVEL_SCOPE((short) 0x02), 
-  TABLE_LEVEL_SCOPE((short) 0x04), 
+
+  USER_LEVEL_SCOPE((short) 0x01),
+  DB_LEVEL_SCOPE((short) 0x02),
+  TABLE_LEVEL_SCOPE((short) 0x04),
   COLUMN_LEVEL_SCOPE((short) 0x08);
 
   private short mode;
 
-  private PrivilegeScope(short mode) {
+  PrivilegeScope(short mode) {
     this.mode = mode;
   }
 
@@ -45,7 +45,7 @@ public enum PrivilegeScope {
   public void setMode(short mode) {
     this.mode = mode;
   }
-  
+
   public static EnumSet<PrivilegeScope> ALLSCOPE = EnumSet.of(
       PrivilegeScope.USER_LEVEL_SCOPE, PrivilegeScope.DB_LEVEL_SCOPE,
       PrivilegeScope.TABLE_LEVEL_SCOPE, PrivilegeScope.COLUMN_LEVEL_SCOPE);

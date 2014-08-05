@@ -32,11 +32,11 @@ import org.apache.hive.hcatalog.common.HCatUtil;
 @InterfaceAudience.Public
 @InterfaceStability.Evolving
 public class HCatFieldSchema implements Serializable {
-/*the implementation of HCatFieldSchema is a bit messy since with the addition of parametrized 
-types (e.g. char(7)) we need to represent something richer than an enum but for backwards 
+/*the implementation of HCatFieldSchema is a bit messy since with the addition of parametrized
+types (e.g. char(7)) we need to represent something richer than an enum but for backwards
 compatibility (and effort required to do full refactoring) this class has both 'type' and 'typeInfo';
 similarly for mapKeyType/mapKeyTypeInfo */
-  
+
   public enum Type {
     /*this captures mapping of Hive type names to HCat type names; in the long run
     * we should just use Hive types directly but that is a larger refactoring effort
@@ -54,23 +54,23 @@ similarly for mapKeyType/mapKeyTypeInfo */
     CHAR(PrimitiveObjectInspector.PrimitiveCategory.CHAR),
     VARCHAR(PrimitiveObjectInspector.PrimitiveCategory.VARCHAR),
     BINARY(PrimitiveObjectInspector.PrimitiveCategory.BINARY),
-    DATE(PrimitiveObjectInspector.PrimitiveCategory.DATE), 
-    TIMESTAMP(PrimitiveObjectInspector.PrimitiveCategory.TIMESTAMP), 
+    DATE(PrimitiveObjectInspector.PrimitiveCategory.DATE),
+    TIMESTAMP(PrimitiveObjectInspector.PrimitiveCategory.TIMESTAMP),
 
     ARRAY(ObjectInspector.Category.LIST),
     MAP(ObjectInspector.Category.MAP),
     STRUCT(ObjectInspector.Category.STRUCT);
 
-    
+
     private final ObjectInspector.Category category;
     private final PrimitiveObjectInspector.PrimitiveCategory primitiveCategory;
-    private Type(ObjectInspector.Category cat) {
+    Type(ObjectInspector.Category cat) {
       category = cat;
       primitiveCategory = null;
-      assert category != ObjectInspector.Category.PRIMITIVE : 
+      assert category != ObjectInspector.Category.PRIMITIVE :
               "This c'tor should be used for complex category types";
     }
-    private Type(PrimitiveObjectInspector.PrimitiveCategory primCat) {
+    Type(PrimitiveObjectInspector.PrimitiveCategory primCat) {
       category = ObjectInspector.Category.PRIMITIVE;
       primitiveCategory = primCat;
     }
@@ -218,7 +218,7 @@ similarly for mapKeyType/mapKeyTypeInfo */
   public HCatFieldSchema(String fieldName, PrimitiveTypeInfo typeInfo, String comment)
           throws HCatException {
     this.fieldName = fieldName;
-    //HCatUtil.assertNotNull(fieldName, "fieldName cannot be null");//seems sometimes it can be 
+    //HCatUtil.assertNotNull(fieldName, "fieldName cannot be null");//seems sometimes it can be
     // null, for ARRAY types in particular (which may be a complex type)
     this.category = Category.PRIMITIVE;
     this.typeInfo = typeInfo;
@@ -263,7 +263,7 @@ similarly for mapKeyType/mapKeyTypeInfo */
    */
   public HCatFieldSchema(String fieldName, Type type, Type mapKeyType, HCatSchema mapValueSchema, String comment) throws HCatException {
     assertTypeInCategory(type, Category.MAP, fieldName);
-    //Hive only supports primitive map keys: 
+    //Hive only supports primitive map keys:
     //https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-ComplexTypes
     assertTypeInCategory(mapKeyType, Category.PRIMITIVE, fieldName);
     this.fieldName = fieldName;
@@ -274,16 +274,16 @@ similarly for mapKeyType/mapKeyTypeInfo */
     this.subSchema.get(0).setName(null);
     this.comment = comment;
   }
-  public static HCatFieldSchema createMapTypeFieldSchema(String fieldName, PrimitiveTypeInfo mapKeyType, 
-                                                         HCatSchema mapValueSchema, 
+  public static HCatFieldSchema createMapTypeFieldSchema(String fieldName, PrimitiveTypeInfo mapKeyType,
+                                                         HCatSchema mapValueSchema,
                                                          String comment) throws HCatException {
-    HCatFieldSchema mapSchema = new HCatFieldSchema(fieldName, Type.MAP,  
-            Type.getPrimitiveHType(mapKeyType), 
+    HCatFieldSchema mapSchema = new HCatFieldSchema(fieldName, Type.MAP,
+            Type.getPrimitiveHType(mapKeyType),
             mapValueSchema, comment);
     mapSchema.mapKeyTypeInfo = mapKeyType;
     return mapSchema;
   }
-  
+
 
   public HCatSchema getStructSubSchema() throws HCatException {
     assertTypeInCategory(this.type, Category.STRUCT, this.fieldName);
@@ -395,11 +395,11 @@ similarly for mapKeyType/mapKeyTypeInfo */
 
   @Override
   public int hashCode() {
-    //result could be cached if this object were to be made immutable... 
+    //result could be cached if this object were to be made immutable...
     int result = 17;
     result = 31 * result + (category == null ? 0 : category.hashCode());
     result = 31 * result + (fieldName == null ? 0 : fieldName.hashCode());
-    result = 31 * result + (getTypeString() == null ? 0 : 
+    result = 31 * result + (getTypeString() == null ? 0 :
         getTypeString().hashCode());
     return result;
   }

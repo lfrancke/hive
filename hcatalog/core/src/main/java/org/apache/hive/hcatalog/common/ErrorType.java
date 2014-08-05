@@ -72,7 +72,7 @@ public enum ErrorType {
    * @param errorCode the error code
    * @param errorMessage the error message
    */
-  private ErrorType(int errorCode, String errorMessage) {
+  ErrorType(int errorCode, String errorMessage) {
     this.errorCode = errorCode;
     this.errorMessage = errorMessage;
   }
@@ -83,7 +83,7 @@ public enum ErrorType {
    * @param errorMessage the error message
    * @param appendCauseMessage should causal exception message be appended to error message
    */
-  private ErrorType(int errorCode, String errorMessage, boolean appendCauseMessage) {
+  ErrorType(int errorCode, String errorMessage, boolean appendCauseMessage) {
     this.errorCode = errorCode;
     this.errorMessage = errorMessage;
     this.appendCauseMessage = appendCauseMessage;
@@ -96,7 +96,7 @@ public enum ErrorType {
    * @param appendCauseMessage should causal exception message be appended to error message
    * @param isRetriable is this a retriable error
    */
-  private ErrorType(int errorCode, String errorMessage, boolean appendCauseMessage, boolean isRetriable) {
+  ErrorType(int errorCode, String errorMessage, boolean appendCauseMessage, boolean isRetriable) {
     this.errorCode = errorCode;
     this.errorMessage = errorMessage;
     this.appendCauseMessage = appendCauseMessage;

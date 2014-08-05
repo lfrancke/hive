@@ -172,7 +172,7 @@ final class SearchArgumentImpl implements SearchArgument {
   }
 
   static class ExpressionTree {
-    static enum Operator {OR, AND, NOT, LEAF, CONSTANT}
+    enum Operator {OR, AND, NOT, LEAF, CONSTANT}
     private final Operator operator;
     private final List<ExpressionTree> children;
     private final int leaf;

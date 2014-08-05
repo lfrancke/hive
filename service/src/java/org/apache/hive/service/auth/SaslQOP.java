@@ -39,7 +39,7 @@ public enum SaslQOP {
       strToEnum.put(SaslQOP.toString(), SaslQOP);
   }
 
-  private SaslQOP(final String saslQop) {
+  SaslQOP(final String saslQop) {
     this.saslQop = saslQop;
   }
 

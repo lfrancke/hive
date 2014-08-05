@@ -72,21 +72,13 @@ import org.apache.hadoop.mapred.SequenceFileInputFormat;
 import org.apache.hadoop.mapred.SequenceFileOutputFormat;
 import org.apache.hadoop.mapred.TextInputFormat;
 
-/**
- * PlanUtils.
- *
- */
 public final class PlanUtils {
 
   protected static final Log LOG = LogFactory.getLog("org.apache.hadoop.hive.ql.plan.PlanUtils");
 
   private static long countForMapJoinDumpFilePrefix = 0;
 
-  /**
-   * ExpressionTypes.
-   *
-   */
-  public static enum ExpressionTypes {
+  public enum ExpressionTypes {
     FIELD, JEXL
   }
 

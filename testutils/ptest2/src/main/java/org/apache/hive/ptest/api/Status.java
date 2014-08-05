@@ -50,7 +50,7 @@ public class Status {
     return "Status [name=" + name + ", message=" + message + "]";
   }
 
-  public static enum Name {
+  public enum Name {
     ILLEGAL_ARGUMENT(),
     QUEUE_FULL(),
     INTERNAL_ERROR(),

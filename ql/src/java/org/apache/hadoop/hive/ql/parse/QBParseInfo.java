@@ -558,7 +558,7 @@ public class QBParseInfo {
     return destToLateralView;
   }
 
-  protected static enum ClauseType {
+  protected enum ClauseType {
     CLUSTER_BY_CLAUSE,
     DISTRIBUTE_BY_CLAUSE,
     ORDER_BY_CLAUSE,

@@ -29,7 +29,7 @@ public class ArchiveWork implements Serializable {
   private static final long serialVersionUID = 1L;
   private ArchiveActionType type;
 
-  public static enum ArchiveActionType {
+  public enum ArchiveActionType {
     ARCHIVE, UNARCHIVE
   }
 

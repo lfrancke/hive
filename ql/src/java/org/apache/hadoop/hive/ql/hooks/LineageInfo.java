@@ -50,7 +50,7 @@ public class LineageInfo implements Serializable {
    *             of a user script through a TRANSFORM, MAP or REDUCE syntax
    *             or from the output of a PTF chain execution.
    */
-  public static enum DependencyType {
+  public enum DependencyType {
     SIMPLE, EXPRESSION, SCRIPT
   }
 

@@ -39,7 +39,7 @@ public class WriteEntity extends Entity implements Serializable {
 
   private boolean isTempURI = false;
 
-  public static enum WriteType {
+  public enum WriteType {
     DDL_EXCLUSIVE, // for use in DDL statements that require an exclusive lock,
                    // such as dropping a table or partition
     DDL_SHARED, // for use in DDL operations that only need a shared lock, such as creating a table

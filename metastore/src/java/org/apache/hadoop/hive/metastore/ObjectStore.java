@@ -150,7 +150,7 @@ public class ObjectStore implements RawStore, Configurable {
   private static Lock pmfPropLock = new ReentrantLock();
   private static final Log LOG = LogFactory.getLog(ObjectStore.class.getName());
 
-  private static enum TXN_STATUS {
+  private enum TXN_STATUS {
     NO_STATE, OPEN, COMMITED, ROLLBACK
   }
 

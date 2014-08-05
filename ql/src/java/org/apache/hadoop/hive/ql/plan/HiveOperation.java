@@ -135,8 +135,8 @@ public enum HiveOperation {
     return operationName;
   }
 
-  private HiveOperation(String operationName,
-      Privilege[] inputRequiredPrivileges, Privilege[] outputRequiredPrivileges) {
+  HiveOperation(String operationName, Privilege[] inputRequiredPrivileges,
+    Privilege[] outputRequiredPrivileges) {
     this.operationName = operationName;
     this.inputRequiredPrivileges = inputRequiredPrivileges;
     this.outputRequiredPrivileges = outputRequiredPrivileges;

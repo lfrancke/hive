@@ -44,11 +44,7 @@ public class GroupByDesc extends AbstractOperatorDesc {
    */
   private static long serialVersionUID = 1L;
 
-  /**
-   * Mode.
-   *
-   */
-  public static enum Mode {
+  public enum Mode {
     COMPLETE, PARTIAL1, PARTIAL2, PARTIALS, FINAL, HASH, MERGEPARTIAL
   }
 

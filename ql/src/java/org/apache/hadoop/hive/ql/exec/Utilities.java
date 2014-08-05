@@ -206,7 +206,7 @@ public final class Utilities {
    * KEY: record key
    * VALUE: record value
    */
-  public static enum ReduceField {
+  public enum ReduceField {
     KEY, VALUE
   }
 
@@ -1185,7 +1185,7 @@ public final class Utilities {
    * StreamStatus.
    *
    */
-  public static enum StreamStatus {
+  public enum StreamStatus {
     EOF, TERMINATED
   }
 
@@ -3427,7 +3427,7 @@ public final class Utilities {
     return createDirsWithPermission(conf, mkdir, fsPermission, recursive);
   }
 
-  private static void resetConfAndCloseFS (Configuration conf, boolean unsetUmask, 
+  private static void resetConfAndCloseFS (Configuration conf, boolean unsetUmask,
       String origUmask, FileSystem fs) throws IOException {
     if (unsetUmask) {
       if (origUmask != null) {

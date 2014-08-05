@@ -149,7 +149,7 @@ public enum ETypeConverter {
 
   final Class<?> _type;
 
-  private ETypeConverter(final Class<?> type) {
+  ETypeConverter(final Class<?> type) {
     this._type = type;
   }
 

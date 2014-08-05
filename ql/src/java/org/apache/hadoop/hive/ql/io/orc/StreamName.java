@@ -25,17 +25,17 @@ class StreamName implements Comparable<StreamName> {
   private final int column;
   private final OrcProto.Stream.Kind kind;
 
-  public static enum Area {
+  public enum Area {
     DATA, INDEX
   }
 
-  public StreamName(int column, OrcProto.Stream.Kind kind) {
+  StreamName(int column, OrcProto.Stream.Kind kind) {
     this.column = column;
     this.kind = kind;
   }
 
   public boolean equals(Object obj) {
-    if (obj != null && obj instanceof  StreamName) {
+    if (obj instanceof StreamName) {
       StreamName other = (StreamName) obj;
       return other.column == column && other.kind == kind;
     } else {

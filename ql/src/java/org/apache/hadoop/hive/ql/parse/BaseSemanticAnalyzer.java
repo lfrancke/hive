@@ -615,7 +615,7 @@ public abstract class BaseSemanticAnalyzer {
     public Partition partHandle;
     public int numDynParts; // number of dynamic partition columns
     public List<Partition> partitions; // involved partitions in TableScanOperator/FileSinkOperator
-    public static enum SpecType {TABLE_ONLY, STATIC_PARTITION, DYNAMIC_PARTITION}
+    public enum SpecType {TABLE_ONLY, STATIC_PARTITION, DYNAMIC_PARTITION}
     public SpecType specType;
 
     public tableSpec(Hive db, HiveConf conf, ASTNode ast)

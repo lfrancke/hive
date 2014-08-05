@@ -100,7 +100,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
   /**
    * valid values for ON_OOR_VALUE_OPT
    */
-  public static enum  OOR_VALUE_OPT_VALUES {Null, Throw}
+  public enum  OOR_VALUE_OPT_VALUES {Null, Throw}
   protected String sign;
   //it's key that this is a per HCatStorer instance object
   private final DataLossLogger dataLossLogger = new DataLossLogger();
@@ -171,7 +171,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
         throw new FrontendException(he.getMessage(), PigHCatUtil.PIG_EXCEPTION_CODE, he);
       }
     }
-    
+
     HCatSchema s = new HCatSchema(fieldSchemas);
     LOG.debug("convertPigSchemaToHCatSchema(computed)=(" + s + ")");
     return s;
@@ -189,7 +189,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
     return false;
   }
   /**
-   * Here we are processing HCat table schema as derived from metastore, 
+   * Here we are processing HCat table schema as derived from metastore,
    * thus it should have information about all fields/sub-fields, but not for partition columns
    */
   private HCatFieldSchema getHCatFSFromPigFS(FieldSchema fSchema, HCatFieldSchema hcatFieldSchema,
@@ -273,7 +273,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
       List<HCatFieldSchema> valFSList = new ArrayList<HCatFieldSchema>(1);
 
       if (hcatFieldSchema != null) {
-        return HCatFieldSchema.createMapTypeFieldSchema(fSchema.alias, hcatFieldSchema.getMapKeyTypeInfo(), 
+        return HCatFieldSchema.createMapTypeFieldSchema(fSchema.alias, hcatFieldSchema.getMapKeyTypeInfo(),
           hcatFieldSchema.getMapValueSchema(), "");
       }
 
@@ -402,7 +402,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
         return HiveDecimal.create(bd);
       case CHAR:
         String charVal = (String)pigObj;
-        CharTypeInfo cti = (CharTypeInfo)hcatFS.getTypeInfo(); 
+        CharTypeInfo cti = (CharTypeInfo)hcatFS.getTypeInfo();
         if(charVal.length() > cti.getLength()) {
           handleOutOfRangeValue(pigObj, hcatFS);
           return null;
@@ -454,7 +454,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
   /**
    * depending on user config, throws an exception or logs a msg if the incoming Pig value is
    * out-of-range for target type.
-   * @param additionalMsg may be {@code null} 
+   * @param additionalMsg may be {@code null}
    */
   private void handleOutOfRangeValue(Object pigObj, HCatFieldSchema hcatFS, String additionalMsg) throws BackendException {
     String msg = "Pig value '" + pigObj + "' is outside the bounds of column " + hcatFS.getName() +
@@ -507,8 +507,8 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
    * @throws HCatException
    * @throws FrontendException
    */
-  private void validateSchema(FieldSchema pigField, HCatFieldSchema hcatField, 
-                              Schema topLevelPigSchema, HCatSchema topLevelHCatSchema, 
+  private void validateSchema(FieldSchema pigField, HCatFieldSchema hcatField,
+                              Schema topLevelPigSchema, HCatSchema topLevelHCatSchema,
                               int columnPos)
     throws HCatException, FrontendException {
     validateAlias(pigField.alias);
@@ -528,7 +528,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
       case DataType.BAG:
         HCatSchema arrayElementSchema = hcatField == null ? null : hcatField.getArrayElementSchema();
         for (FieldSchema innerField : pigField.schema.getField(0).schema.getFields()) {
-          validateSchema(innerField, getColFromSchema(pigField.alias, arrayElementSchema), 
+          validateSchema(innerField, getColFromSchema(pigField.alias, arrayElementSchema),
                   topLevelPigSchema, topLevelHCatSchema, columnPos);
         }
         break;
@@ -564,7 +564,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
           throwTypeMismatchException(type, Lists.newArrayList(Type.BOOLEAN), hcatField, columnPos);
           break;
         case DataType.CHARARRAY:
-          throwTypeMismatchException(type, Lists.newArrayList(Type.STRING, Type.CHAR, Type.VARCHAR), 
+          throwTypeMismatchException(type, Lists.newArrayList(Type.STRING, Type.CHAR, Type.VARCHAR),
                   hcatField, columnPos);
           break;
         case DataType.DOUBLE:
@@ -574,15 +574,15 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
           throwTypeMismatchException(type, Lists.newArrayList(Type.FLOAT), hcatField, columnPos);
           break;
         case DataType.INTEGER:
-          throwTypeMismatchException(type, Lists.newArrayList(Type.INT, Type.BIGINT, 
+          throwTypeMismatchException(type, Lists.newArrayList(Type.INT, Type.BIGINT,
                   Type.TINYINT, Type.SMALLINT), hcatField, columnPos);
           break;
         case DataType.LONG:
           throwTypeMismatchException(type, Lists.newArrayList(Type.BIGINT), hcatField, columnPos);
           break;
         default:
-          throw new FrontendException("'" + type + 
-                  "' Pig datatype in column " + columnPos + "(0-based) is not supported by HCat", 
+          throw new FrontendException("'" + type +
+                  "' Pig datatype in column " + columnPos + "(0-based) is not supported by HCat",
                   PigHCatUtil.PIG_EXCEPTION_CODE);
       }
     }
@@ -596,12 +596,12 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
     }
   }
   private static void throwTypeMismatchException(byte pigDataType,
-      List<Type> hcatRequiredType, HCatFieldSchema hcatActualField, 
+      List<Type> hcatRequiredType, HCatFieldSchema hcatActualField,
       int columnPos) throws FrontendException {
     if(!hcatRequiredType.contains(hcatActualField.getType())) {
-      throw new FrontendException( 
-              "Pig '" + DataType.findTypeName(pigDataType) + "' type in column " + 
-              columnPos + "(0-based) cannot map to HCat '" + 
+      throw new FrontendException(
+              "Pig '" + DataType.findTypeName(pigDataType) + "' type in column " +
+              columnPos + "(0-based) cannot map to HCat '" +
               hcatActualField.getType() + "'type.  Target filed must be of HCat type {" +
               StringUtils.join(hcatRequiredType, " or ") + "}");
     }
@@ -639,7 +639,7 @@ abstract class HCatBaseStorer extends StoreFunc implements StoreMetadata {
   }
 
   /**
-   * todo: when job is complete, should print the msgCount table to log 
+   * todo: when job is complete, should print the msgCount table to log
    */
   private static final class DataLossLogger {
     private static final Map<String, Integer> msgCount = new HashMap<String, Integer>();

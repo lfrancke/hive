@@ -1116,7 +1116,7 @@ public final class PrimitiveObjectInspectorUtils {
   /**
    * Provide a general grouping for each primitive data type.
    */
-  public static enum PrimitiveGrouping {
+  public enum PrimitiveGrouping {
     NUMERIC_GROUP, STRING_GROUP, BOOLEAN_GROUP, DATE_GROUP, BINARY_GROUP,
     VOID_GROUP, UNKNOWN_GROUP
   }
