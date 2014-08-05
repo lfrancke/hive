@@ -116,19 +116,18 @@ public class StatsSetupConst {
   /**
    * @return List of all supported statistics
    */
-  public static final String[] supportedStats = new String[]
-	{NUM_FILES,ROW_COUNT,TOTAL_SIZE,RAW_DATA_SIZE};
+  public static final String[] supportedStats = {NUM_FILES,ROW_COUNT,TOTAL_SIZE,RAW_DATA_SIZE};
 
   /**
    * @return List of all statistics that need to be collected during query execution. These are
    * statistics that inherently require a scan of the data.
    */
-  public static final String[] statsRequireCompute = new String[] {ROW_COUNT,RAW_DATA_SIZE};
+  public static final String[] statsRequireCompute = {ROW_COUNT,RAW_DATA_SIZE};
 
   /**
    * @return List of statistics that can be collected quickly without requiring a scan of the data.
    */
-  public static final String[] fastStats = new String[] {NUM_FILES,TOTAL_SIZE};
+  public static final String[] fastStats = {NUM_FILES,TOTAL_SIZE};
 
   // This string constant is used by stats task to indicate to AlterHandler that
   // alterPartition/alterTable is happening via statsTask.
@@ -143,7 +142,7 @@ public class StatsSetupConst {
   public static final String FALSE = "false";
 
   public static boolean areStatsUptoDate(Map<String,String> params) {
-	String statsAcc = params.get(COLUMN_STATS_ACCURATE);
-	return statsAcc == null ? false : statsAcc.equals(TRUE);
+    String statsAcc = params.get(COLUMN_STATS_ACCURATE);
+    return TRUE.equals(statsAcc);
   }
 }

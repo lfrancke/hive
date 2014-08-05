@@ -512,7 +512,7 @@ public class VectorizationContext {
     }
     return null;
   }
-  
+
   private int getPrecisionForType(PrimitiveTypeInfo typeInfo) {
     if (isFloatFamily(typeInfo.getTypeName())) {
       return HiveDecimal.MAX_PRECISION;
@@ -569,8 +569,8 @@ public class VectorizationContext {
       ((GenericUDFBridge) genericUdf).setUdfClassName(udfClass.getClass().getName());
     }
     if (genericUdf instanceof SettableUDF) {
-	((SettableUDF)genericUdf).setTypeInfo(castType);
-    }    
+      ((SettableUDF) genericUdf).setTypeInfo(castType);
+    }
     return genericUdf;
   }
 
@@ -662,7 +662,7 @@ public class VectorizationContext {
     if (!(exprDesc instanceof ExprNodeGenericFuncDesc)) {
       return exprDesc;
     }
-    
+
     if (exprDesc.getChildren() == null || (exprDesc.getChildren().size() != 1) ) {
       return exprDesc;
     }
@@ -693,7 +693,7 @@ public class VectorizationContext {
       ExprNodeEvaluator<?> evaluator = ExprNodeEvaluatorFactory.get(exprDesc);
       ObjectInspector output = evaluator.initialize(childoi);
       Object constant = evaluator.evaluate(null);
-      Object java = ObjectInspectorUtils.copyToStandardJavaObject(constant, output);  
+      Object java = ObjectInspectorUtils.copyToStandardJavaObject(constant, output);
       return new ExprNodeConstantDesc(exprDesc.getTypeInfo(), java);
      }
 
@@ -724,7 +724,7 @@ public class VectorizationContext {
       outCol = ocm.allocateOutputColumn(colVectorType);
     }
     if (constantValue == null) {
-    	return new ConstantVectorExpression(outCol, type, true);
+      return new ConstantVectorExpression(outCol, type, true);
     } else if (decimalTypePattern.matcher(type).matches()) {
       VectorExpression ve = new ConstantVectorExpression(outCol, (Decimal128) constantValue);
       ve.setOutputType(typeInfo.getTypeName());
@@ -1177,7 +1177,7 @@ public class VectorizationContext {
 
       // float types require no conversion, so use a no-op
       return getIdentityExpression(childExpr);
-    } 
+    }
     // The string type is deliberately omitted -- it's handled elsewhere. See isLegacyPathUDF.
 
     return null;
@@ -1405,11 +1405,11 @@ public class VectorizationContext {
   public static boolean isTimestampFamily(String resultType) {
     return resultType.equalsIgnoreCase("timestamp");
   }
-  
+
   public static boolean isDateFamily(String resultType) {
     return resultType.equalsIgnoreCase("date");
   }
-  
+
   // return true if this is any kind of float
   public static boolean isFloatFamily(String resultType) {
     return resultType.equalsIgnoreCase("double")

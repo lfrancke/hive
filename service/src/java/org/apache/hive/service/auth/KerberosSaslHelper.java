@@ -79,8 +79,8 @@ public class KerberosSaslHelper {
     }
   }
 
-  public static TTransport createSubjectAssumedTransport(String principal, 
-		  TTransport underlyingTransport, Map<String, String> saslProps) throws IOException {
+  public static TTransport createSubjectAssumedTransport(String principal,
+      TTransport underlyingTransport, Map<String, String> saslProps) throws IOException {
     TTransport saslTransport = null;
     final String names[] = principal.split("[/@]");
     try {

@@ -22,45 +22,41 @@ import org.apache.hadoop.hive.ql.udf.generic.GenericUDAFResolver;
 import org.apache.hive.common.util.AnnotationUtils;
 
 @SuppressWarnings("deprecation")
-public class WindowFunctionInfo implements CommonFunctionInfo
-{
-	boolean supportsWindow = true;
-	boolean pivotResult = false;
-	boolean impliesOrder = false;
-	FunctionInfo fInfo;
+public class WindowFunctionInfo implements CommonFunctionInfo {
 
-	WindowFunctionInfo(FunctionInfo fInfo)
-	{
-		assert fInfo.isGenericUDAF();
-		this.fInfo = fInfo;
-		Class<? extends GenericUDAFResolver> wfnCls = fInfo.getGenericUDAFResolver().getClass();
-		WindowFunctionDescription def =
-          AnnotationUtils.getAnnotation(wfnCls, WindowFunctionDescription.class);
-		if ( def != null)
-		{
-			supportsWindow = def.supportsWindow();
-			pivotResult = def.pivotResult();
-			impliesOrder = def.impliesOrder();
-		}
-	}
+  boolean supportsWindow = true;
+  boolean pivotResult = false;
+  boolean impliesOrder = false;
+  FunctionInfo fInfo;
 
-	public boolean isSupportsWindow()
-	{
-		return supportsWindow;
-	}
+  WindowFunctionInfo(FunctionInfo fInfo) {
+    assert fInfo.isGenericUDAF();
+    this.fInfo = fInfo;
+    Class<? extends GenericUDAFResolver> wfnCls = fInfo.getGenericUDAFResolver().getClass();
+    WindowFunctionDescription def =
+      AnnotationUtils.getAnnotation(wfnCls, WindowFunctionDescription.class);
+    if (def != null) {
+      supportsWindow = def.supportsWindow();
+      pivotResult = def.pivotResult();
+      impliesOrder = def.impliesOrder();
+    }
+  }
 
-	public boolean isPivotResult()
-	{
-		return pivotResult;
-	}
+  public boolean isSupportsWindow() {
+    return supportsWindow;
+  }
 
-	public boolean isImpliesOrder(){
-	  return impliesOrder;
-	}
-	public FunctionInfo getfInfo()
-	{
-		return fInfo;
-	}
+  public boolean isPivotResult() {
+    return pivotResult;
+  }
+
+  public boolean isImpliesOrder() {
+    return impliesOrder;
+  }
+
+  public FunctionInfo getfInfo() {
+    return fInfo;
+  }
 
   @Override
   public Class<?> getFunctionClass() {

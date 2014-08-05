@@ -1355,14 +1355,13 @@ public final class Utilities {
       throws IOException {
     CompressionCodec codec = null;
     CompressionType compressionType = CompressionType.NONE;
-    Class codecClass = null;
     if (isCompressed) {
       compressionType = SequenceFileOutputFormat.getOutputCompressionType(jc);
-      codecClass = FileOutputFormat.getOutputCompressorClass(jc, DefaultCodec.class);
+      Class codecClass = FileOutputFormat.getOutputCompressorClass(jc, DefaultCodec.class);
       codec = (CompressionCodec) ReflectionUtils.newInstance(codecClass, jc);
     }
-    return (SequenceFile.createWriter(fs, jc, file, keyClass, valClass, compressionType, codec,
-	progressable));
+    return SequenceFile.createWriter(fs, jc, file, keyClass, valClass, compressionType, codec,
+      progressable);
 
   }
 
