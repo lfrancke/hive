@@ -36,6 +36,6 @@ public interface ReaderContext extends Externalizable {
    * as one slave can be used to read multiple splits.
    * @return number of splits
    */
-  public int numSplits();
+  int numSplits();
 
 }

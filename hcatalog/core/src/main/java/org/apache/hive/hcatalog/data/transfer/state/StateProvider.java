@@ -31,5 +31,5 @@ public interface StateProvider {
    *
    * @return id
    */
-  public int getId();
+  int getId();
 }

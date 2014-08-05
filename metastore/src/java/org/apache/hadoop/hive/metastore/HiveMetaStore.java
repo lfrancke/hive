@@ -286,7 +286,7 @@ public class HiveMetaStore extends ThriftHiveMetastore {
           }
         };
 
-    private final void logAuditEvent(String cmd) {
+    private void logAuditEvent(String cmd) {
       if (cmd == null) {
         return;
       }

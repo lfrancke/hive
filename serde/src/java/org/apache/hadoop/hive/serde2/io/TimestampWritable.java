@@ -55,9 +55,9 @@ import org.apache.hadoop.io.WritableUtils;
  *
  */
 public class TimestampWritable implements WritableComparable<TimestampWritable> {
-  static final private Log LOG = LogFactory.getLog(TimestampWritable.class);
+  private static final Log LOG = LogFactory.getLog(TimestampWritable.class);
 
-  static final public byte[] nullBytes = {0x0, 0x0, 0x0, 0x0};
+  public static final byte[] nullBytes = {0x0, 0x0, 0x0, 0x0};
 
   private static final int DECIMAL_OR_SECOND_VINT_FLAG = 0x80000000;
   private static final int LOWEST_31_BITS_OF_SEC_MASK = 0x7fffffff;
@@ -587,7 +587,7 @@ public class TimestampWritable implements WritableComparable<TimestampWritable> 
     return WritableUtils.isNegativeVInt(b);
   }
 
-  private final boolean hasDecimalOrSecondVInt() {
+  private boolean hasDecimalOrSecondVInt() {
     return hasDecimalOrSecondVInt(currentBytes[offset]);
   }
 

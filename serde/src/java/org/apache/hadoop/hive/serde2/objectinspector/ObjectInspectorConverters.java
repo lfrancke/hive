@@ -51,7 +51,7 @@ public final class ObjectInspectorConverters {
   /**
    * A converter which will convert objects with one ObjectInspector to another.
    */
-  public static interface Converter {
+  public interface Converter {
     Object convert(Object input);
   }
 

@@ -55,15 +55,13 @@ public interface HiveStoragePredicateHandler {
    * @return decomposed form of predicate, or null if no pushdown is
    * possible at all
    */
-  public DecomposedPredicate decomposePredicate(
-    JobConf jobConf,
-    Deserializer deserializer,
+  DecomposedPredicate decomposePredicate(JobConf jobConf, Deserializer deserializer,
     ExprNodeDesc predicate);
 
   /**
    * Struct class for returning multiple values from decomposePredicate.
    */
-  public static class DecomposedPredicate {
+  class DecomposedPredicate {
     /**
      * Portion of predicate to be evaluated by storage handler.  Hive
      * will pass this into the storage handler's input format.

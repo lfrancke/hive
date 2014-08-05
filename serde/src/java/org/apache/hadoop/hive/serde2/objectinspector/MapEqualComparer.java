@@ -21,6 +21,5 @@ public interface MapEqualComparer {
   /*
    * Compare the two map objects for equality.
    */
-  public int compare(Object o1, MapObjectInspector moi1,
-      Object o2, MapObjectInspector moi2);
+  int compare(Object o1, MapObjectInspector moi1, Object o2, MapObjectInspector moi2);
 }

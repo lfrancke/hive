@@ -74,7 +74,7 @@ public class NodeUtils {
     }
   }
 
-  public static interface Function<T> {
+  public interface Function<T> {
     void apply(T argument);
   }
 }

@@ -24,5 +24,5 @@ import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.ql.plan.MapredWork;
 
 public interface ReworkMapredInputFormat {
-  public void rework(HiveConf job, MapredWork work) throws IOException;
+  void rework(HiveConf job, MapredWork work) throws IOException;
 }

@@ -36,7 +36,7 @@ public interface MetaStoreFS {
    * @return true on success
    * @throws MetaException
    */
-  public boolean deleteDir(FileSystem fs, Path f, boolean recursive,
-      Configuration conf) throws MetaException;
+  boolean deleteDir(FileSystem fs, Path f, boolean recursive, Configuration conf)
+    throws MetaException;
 
 }
