@@ -51,9 +51,10 @@ public class GenericUDFBetween extends GenericUDF {
   @Override
   public Object evaluate(DeferredObject[] arguments) throws HiveException {
     boolean invert = (Boolean) ((PrimitiveObjectInspector) argumentOIs[0])
-				.getPrimitiveJavaObject(arguments[0].get());
+      .getPrimitiveJavaObject(arguments[0].get());
 
-    BooleanWritable left = ((BooleanWritable)egt.evaluate(new DeferredObject[] {arguments[1], arguments[2]}));
+    BooleanWritable left =
+      (BooleanWritable)egt.evaluate(new DeferredObject[] {arguments[1], arguments[2]});
     if (left == null) {
       return null;
     }
@@ -61,7 +62,8 @@ public class GenericUDFBetween extends GenericUDF {
       result.set(false);
       return result;
     }
-    BooleanWritable right = ((BooleanWritable)elt.evaluate(new DeferredObject[] {arguments[1], arguments[3]}));
+    BooleanWritable right =
+      (BooleanWritable)elt.evaluate(new DeferredObject[] {arguments[1], arguments[3]});
     if (right == null) {
       return null;
     }

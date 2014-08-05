@@ -77,12 +77,11 @@ import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoUtils;
  * "tpath" is available. Path is a collection of rows that represents the matching Path.
  * </ol>
  */
-public class MatchPath extends TableFunctionEvaluator
-{
-  private transient String patternStr;
-  private transient SymbolsInfo symInfo;
-  private transient String resultExprStr;
-  private transient SymbolFunction syFn;
+public class MatchPath extends TableFunctionEvaluator {
+  private String patternStr;
+  private SymbolsInfo symInfo;
+  private String resultExprStr;
+  private SymbolFunction syFn;
   private ResultExprInfo resultExprInfo;
   /*
    * the names of the Columns of the input to MatchPath. Used to setup the tpath Struct column.
@@ -90,10 +89,8 @@ public class MatchPath extends TableFunctionEvaluator
   private HashMap<String,String> inputColumnNamesMap;
 
   @Override
-  public void execute(PTFPartitionIterator<Object> pItr, PTFPartition outP) throws HiveException
-  {
-    while (pItr.hasNext())
-    {
+  public void execute(PTFPartitionIterator<Object> pItr, PTFPartition outP) throws HiveException {
+    while (pItr.hasNext()) {
       Object iRow = pItr.next();
 
       SymbolFunctionResult syFnRes = SymbolFunction.match(syFn, iRow, pItr);
@@ -112,8 +109,7 @@ public class MatchPath extends TableFunctionEvaluator
     }
   }
 
-  static void throwErrorWithSignature(String message) throws SemanticException
-  {
+  static void throwErrorWithSignature(String message) throws SemanticException {
     throw new SemanticException(String.format(
         "MatchPath signature is: SymbolPattern, one or more SymbolName, " +
         "expression pairs, the result expression as a select list. Error %s",
@@ -225,7 +221,7 @@ public class MatchPath extends TableFunctionEvaluator
       if ( symbolArgsSz % 2 != 0)
       {
         throwErrorWithSignature("Symbol Name, Expression need to be specified in pairs: " +
-        		"there are odd number of symbol args");
+            "there are odd number of symbol args");
       }
 
       evaluator.symInfo = new SymbolsInfo(symbolArgsSz/2);
@@ -253,7 +249,7 @@ public class MatchPath extends TableFunctionEvaluator
               PrimitiveObjectInspector.PrimitiveCategory.BOOLEAN )
         {
           throwErrorWithSignature(String.format("Currently a Symbol Expression(%s) " +
-          		"must be a boolean expression", symolExprArg.getExpressionTreeString()));
+              "must be a boolean expression", symolExprArg.getExpressionTreeString()));
         }
         evaluator.symInfo.add(symbolName, symolExprArg);
       }
@@ -379,8 +375,8 @@ public class MatchPath extends TableFunctionEvaluator
   public static class ResultExprInfo {
     ArrayList<String> resultExprNames;
     ArrayList<ExprNodeDesc> resultExprNodes;
-    private transient ArrayList<ExprNodeEvaluator> resultExprEvals;
-    private transient StructObjectInspector resultOI;
+    private ArrayList<ExprNodeEvaluator> resultExprEvals;
+    private StructObjectInspector resultOI;
 
     public ArrayList<String> getResultExprNames() {
       return resultExprNames;

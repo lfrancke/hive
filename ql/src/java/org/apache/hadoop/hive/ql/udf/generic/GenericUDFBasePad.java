@@ -24,29 +24,30 @@ import org.apache.hadoop.hive.ql.exec.UDFArgumentTypeException;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorConverters;
-import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector;
-import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectInspectorFactory;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorConverters.Converter;
+import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector.PrimitiveCategory;
+import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectInspectorFactory;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 
 public abstract class GenericUDFBasePad extends GenericUDF {
-  private transient Converter converter1;
-  private transient Converter converter2;
-  private transient Converter converter3;
-  private Text result = new Text();
-  private String udfName;
 
-  public GenericUDFBasePad(String _udfName) {
-    this.udfName = _udfName;
+  private Converter converter1;
+  private Converter converter2;
+  private Converter converter3;
+  private final Text result = new Text();
+  private final String udfName;
+
+  protected GenericUDFBasePad(String udfName) {
+    this.udfName = udfName;
   }
 
   @Override
   public ObjectInspector initialize(ObjectInspector[] arguments) throws UDFArgumentException {
     if (arguments.length != 3) {
-      throw new UDFArgumentException(udfName + " requires three arguments. Found :"
-	  + arguments.length);
+      throw new UDFArgumentException(
+        udfName + " requires three arguments. Found :" + arguments.length);
     }
     converter1 = checkArguments(arguments, 0);
     converter2 = checkArguments(arguments, 1);
@@ -89,33 +90,34 @@ public abstract class GenericUDFBasePad extends GenericUDF {
   }
 
   protected abstract void performOp(byte[] data, byte[] txt, byte[] padTxt, int len, Text str,
-      Text pad);
+    Text pad);
 
-  private Converter checkArguments(ObjectInspector[] arguments, int i)
-    throws UDFArgumentException {
+  private Converter checkArguments(ObjectInspector[] arguments, int i) throws UDFArgumentException {
     if (arguments[i].getCategory() != ObjectInspector.Category.PRIMITIVE) {
       throw new UDFArgumentTypeException(i + 1, "Only primitive type arguments are accepted but "
-	  + arguments[i].getTypeName() + " is passed. as  arguments");
+                                                + arguments[i].getTypeName()
+                                                + " is passed. as  arguments");
     }
     PrimitiveCategory inputType = ((PrimitiveObjectInspector) arguments[i]).getPrimitiveCategory();
     Converter converter;
     switch (inputType) {
-    case STRING:
-    case CHAR:
-    case VARCHAR:
-      converter = ObjectInspectorConverters.getConverter((PrimitiveObjectInspector) arguments[i],
-	  PrimitiveObjectInspectorFactory.writableStringObjectInspector);
-      break;
-    case INT:
-    case SHORT:
-    case BYTE:
-      converter = ObjectInspectorConverters.getConverter((PrimitiveObjectInspector) arguments[i],
-	  PrimitiveObjectInspectorFactory.writableIntObjectInspector);
-      break;
-    default:
-      throw new UDFArgumentTypeException(i + 1, udfName
-	  + " only takes STRING/CHAR/INT/SHORT/BYTE/VARCHAR types as " + (i + 1) + "-ths argument, got "
-	  + inputType);
+      case STRING:
+      case CHAR:
+      case VARCHAR:
+        converter = ObjectInspectorConverters.getConverter(arguments[i],
+          PrimitiveObjectInspectorFactory.writableStringObjectInspector);
+        break;
+      case INT:
+      case SHORT:
+      case BYTE:
+        converter = ObjectInspectorConverters.getConverter(arguments[i],
+          PrimitiveObjectInspectorFactory.writableIntObjectInspector);
+        break;
+      default:
+        throw new UDFArgumentTypeException(i + 1, udfName
+                                                  + " only takes STRING/CHAR/INT/SHORT/BYTE/VARCHAR"
+                                                  + " types as " + (i + 1) + "-ths argument, got "
+                                                  + inputType);
     }
     return converter;
   }

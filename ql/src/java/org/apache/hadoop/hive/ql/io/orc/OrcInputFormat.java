@@ -908,33 +908,31 @@ public class OrcInputFormat  implements InputFormat<NullWritable, OrcStruct>,
     }
   }
 
-  static List<OrcSplit> generateSplitsInfo(Configuration conf)
-      throws IOException {
-	  // use threads to resolve directories into splits
-	  Context context = new Context(conf);
-	  for(Path dir: getInputPaths(conf)) {
-	    FileSystem fs = dir.getFileSystem(conf);
-	    context.schedule(new FileGenerator(context, fs, dir));
-	  }
-	  context.waitForTasks();
-	  // deal with exceptions
-	  if (!context.errors.isEmpty()) {
-	    List<IOException> errors =
-	        new ArrayList<IOException>(context.errors.size());
-	    for(Throwable th: context.errors) {
-	      if (th instanceof IOException) {
-	        errors.add((IOException) th);
-	      } else {
-	        throw new RuntimeException("serious problem", th);
-	      }
-	    }
-	    throw new InvalidInputException(errors);
-	  }
+  static List<OrcSplit> generateSplitsInfo(Configuration conf) throws IOException {
+    // use threads to resolve directories into splits
+    Context context = new Context(conf);
+    for (Path dir : getInputPaths(conf)) {
+      FileSystem fs = dir.getFileSystem(conf);
+      context.schedule(new FileGenerator(context, fs, dir));
+    }
+    context.waitForTasks();
+    // deal with exceptions
+    if (!context.errors.isEmpty()) {
+      List<IOException> errors = new ArrayList<IOException>(context.errors.size());
+      for (Throwable th : context.errors) {
+        if (th instanceof IOException) {
+          errors.add((IOException) th);
+        } else {
+          throw new RuntimeException("serious problem", th);
+        }
+      }
+      throw new InvalidInputException(errors);
+    }
     if (context.cacheStripeDetails) {
       LOG.info("FooterCacheHitRatio: " + context.cacheHitCounter.get() + "/"
-          + context.numFilesCounter.get());
+               + context.numFilesCounter.get());
     }
-	  return context.splits;
+    return context.splits;
   }
 
   @Override

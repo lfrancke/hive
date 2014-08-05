@@ -36,8 +36,8 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.VoidObjectInspect
              extended = "Currently only string, char, varchar or binary can be cast into binary")
 public class GenericUDFToBinary extends GenericUDF {
 
-  private transient PrimitiveObjectInspector argumentOI;
-  private transient BinaryConverter baConverter;
+  private PrimitiveObjectInspector argumentOI;
+  private BinaryConverter baConverter;
 
   @Override
   public ObjectInspector initialize(ObjectInspector[] arguments) throws UDFArgumentException {
@@ -59,7 +59,7 @@ public class GenericUDFToBinary extends GenericUDF {
         || (argumentOI instanceof StringObjectInspector)
         || (argumentOI instanceof VoidObjectInspector))){
       throw new UDFArgumentException("Only string, char, varchar or binary data can be cast into binary " +
-      		"data types.");
+          "data types.");
     }
     baConverter = new BinaryConverter(argumentOI,
         PrimitiveObjectInspectorFactory.writableBinaryObjectInspector);
@@ -78,7 +78,7 @@ public class GenericUDFToBinary extends GenericUDF {
 
   @Override
   public String getDisplayString(String[] children) {
-    assert (children.length == 1);
+    assert children.length == 1;
     StringBuilder sb = new StringBuilder();
     sb.append("CAST( ");
     sb.append(children[0]);

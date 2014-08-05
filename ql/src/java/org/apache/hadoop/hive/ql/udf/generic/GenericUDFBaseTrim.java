@@ -28,6 +28,7 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
 import org.apache.hadoop.io.Text;
 
 public abstract class GenericUDFBaseTrim extends GenericUDF {
+
   private transient TextConverter converter;
   private Text result = new Text();
   private String udfName;
@@ -39,24 +40,25 @@ public abstract class GenericUDFBaseTrim extends GenericUDF {
   @Override
   public ObjectInspector initialize(ObjectInspector[] arguments) throws UDFArgumentException {
     if (arguments.length != 1) {
-      throw new UDFArgumentException(udfName + " requires one value argument. Found :"
-	  + arguments.length);
+      throw new UDFArgumentException(
+        udfName + " requires one value argument. Found :" + arguments.length);
     }
     PrimitiveObjectInspector argumentOI;
-    if(arguments[0] instanceof PrimitiveObjectInspector) {
+    if (arguments[0] instanceof PrimitiveObjectInspector) {
       argumentOI = (PrimitiveObjectInspector) arguments[0];
     } else {
-      throw new UDFArgumentException(udfName + " takes only primitive types. found "
-	  + arguments[0].getTypeName());
+      throw new UDFArgumentException(
+        udfName + " takes only primitive types. found " + arguments[0].getTypeName());
     }
     switch (argumentOI.getPrimitiveCategory()) {
-    case STRING:
-    case CHAR:
-    case VARCHAR:
-      break;
-    default:
-      throw new UDFArgumentException(udfName + " takes only STRING/CHAR/VARCHAR types. Found "
-	  + argumentOI.getPrimitiveCategory());
+      case STRING:
+      case CHAR:
+      case VARCHAR:
+        break;
+      default:
+        throw new UDFArgumentException(udfName
+                                       + " takes only STRING/CHAR/VARCHAR types. Found "
+                                       + argumentOI.getPrimitiveCategory());
     }
     converter = new TextConverter(argumentOI);
     return PrimitiveObjectInspectorFactory.writableStringObjectInspector;

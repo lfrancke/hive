@@ -21,10 +21,6 @@ package org.apache.hadoop.hive.ql.udf.generic;
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.io.Text;
 
-/**
- * UDFRpad.
- *
- */
 @Description(name = "rpad", value = "_FUNC_(str, len, pad) - " +
     "Returns str, right-padded with pad to a length of len",
     extended = "If str is longer than len, the return value is shortened to "
@@ -48,7 +44,7 @@ public class GenericUDFRpad extends GenericUDFBasePad {
     // Copy the padding
     while (pos < len) {
       for (int i = 0; i < pad.getLength() && i < len - pos; i++) {
-	data[pos + i] = padTxt[i];
+        data[pos + i] = padTxt[i];
       }
       pos += pad.getLength();
     }
