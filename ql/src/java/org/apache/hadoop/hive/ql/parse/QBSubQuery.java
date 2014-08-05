@@ -239,8 +239,8 @@ public class QBSubQuery implements ISubQueryJoinInfo {
     Stack<Node> stack;
 
     ConjunctAnalyzer(RowResolver parentQueryRR,
-    		boolean forHavingClause,
-    		String parentQueryNewAlias) {
+        boolean forHavingClause,
+        String parentQueryNewAlias) {
       this.parentQueryRR = parentQueryRR;
       defaultExprProcessor = new DefaultExprProcessor();
       this.forHavingClause = forHavingClause;
@@ -259,14 +259,14 @@ public class QBSubQuery implements ISubQueryJoinInfo {
      */
     private ObjectPair<ExprType,ColumnInfo> analyzeExpr(ASTNode expr) {
       ColumnInfo cInfo = null;
-      if ( forHavingClause ) {
-      	try {
-      	  cInfo = parentQueryRR.getExpression(expr);
-      		if ( cInfo != null) {
-      		    return ObjectPair.create(ExprType.REFERS_PARENT, cInfo);
-      	    }
-      	} catch(SemanticException se) {
-      	}
+      if (forHavingClause) {
+        try {
+          cInfo = parentQueryRR.getExpression(expr);
+          if (cInfo != null) {
+            return ObjectPair.create(ExprType.REFERS_PARENT, cInfo);
+          }
+        } catch (SemanticException se) {
+        }
       }
       if ( expr.getType() == HiveParser.DOT) {
         ASTNode dot = firstDot(expr);
@@ -509,9 +509,9 @@ public class QBSubQuery implements ISubQueryJoinInfo {
   }
 
   void validateAndRewriteAST(RowResolver outerQueryRR,
-		  boolean forHavingClause,
-		  String outerQueryAlias,
-		  Set<String> outerQryAliases) throws SemanticException {
+      boolean forHavingClause,
+      String outerQueryAlias,
+      Set<String> outerQryAliases) throws SemanticException {
 
     ASTNode selectClause = (ASTNode) subQueryAST.getChild(1).getChild(1);
 
@@ -553,7 +553,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
           subQueryAST.setOrigin(originalSQASTOrigin);
           throw new SemanticException(ErrorMsg.UNSUPPORTED_SUBQUERY_EXPRESSION.getMsg(
               u, "SubQuery cannot use the table alias: " + sharedAlias + "; " +
-              		"this is also an alias in the Outer Query and SubQuery contains a unqualified column reference"));
+                  "this is also an alias in the Outer Query and SubQuery contains a unqualified column reference"));
         }
       }
     }
@@ -641,8 +641,8 @@ public class QBSubQuery implements ISubQueryJoinInfo {
   }
 
   void buildJoinCondition(RowResolver outerQueryRR, RowResolver sqRR,
-		  boolean forHavingClause,
-		  String outerQueryAlias) throws SemanticException {
+      boolean forHavingClause,
+      String outerQueryAlias) throws SemanticException {
     ASTNode parentQueryJoinCond = null;
 
     if ( parentQueryExpression != null ) {
@@ -752,8 +752,8 @@ public class QBSubQuery implements ISubQueryJoinInfo {
    *      name; so in our e.g. the condition would be: R2.x = R1._gby_sq_col_1
    */
   private void rewrite(RowResolver parentQueryRR,
-		  boolean forHavingClause,
-		  String outerQueryAlias) throws SemanticException {
+      boolean forHavingClause,
+      String outerQueryAlias) throws SemanticException {
     ASTNode selectClause = (ASTNode) subQueryAST.getChild(1).getChild(1);
     ASTNode whereClause = SubQueryUtils.subQueryWhere(subQueryAST);
 
@@ -766,7 +766,7 @@ public class QBSubQuery implements ISubQueryJoinInfo {
     SubQueryUtils.extractConjuncts(searchCond, conjuncts);
 
     ConjunctAnalyzer conjunctAnalyzer = new ConjunctAnalyzer(parentQueryRR,
-    		forHavingClause, outerQueryAlias);
+        forHavingClause, outerQueryAlias);
     ASTNode sqNewSearchCond = null;
 
     for(ASTNode conjunctAST : conjuncts) {

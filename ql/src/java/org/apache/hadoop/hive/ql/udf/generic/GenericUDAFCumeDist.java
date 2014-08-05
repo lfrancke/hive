@@ -34,29 +34,29 @@ import org.apache.hadoop.io.IntWritable;
 
 @WindowFunctionDescription
 (
-		description = @Description(
-								name = "cume_dist",
-								value = "_FUNC_(x) - The CUME_DIST function (defined as the inverse of percentile in some " +
-									"statistical books) computes the position of a specified value relative to a set of values. " +
-									"To compute the CUME_DIST of a value x in a set S of size N, you use the formula: " +
-									"CUME_DIST(x) =  number of values in S coming before " +
-									"   and including x in the specified order/ N"
-								),
-		supportsWindow = false,
-		pivotResult = true,
-		rankingFunction = true,
-		impliesOrder = true
+    description = @Description(
+                name = "cume_dist",
+                value = "_FUNC_(x) - The CUME_DIST function (defined as the inverse of percentile in some " +
+                  "statistical books) computes the position of a specified value relative to a set of values. " +
+                  "To compute the CUME_DIST of a value x in a set S of size N, you use the formula: " +
+                  "CUME_DIST(x) =  number of values in S coming before " +
+                  "   and including x in the specified order/ N"
+                ),
+    supportsWindow = false,
+    pivotResult = true,
+    rankingFunction = true,
+    impliesOrder = true
 )
 public class GenericUDAFCumeDist extends GenericUDAFRank
 {
 
-	static final Log LOG = LogFactory.getLog(GenericUDAFCumeDist.class.getName());
+  static final Log LOG = LogFactory.getLog(GenericUDAFCumeDist.class.getName());
 
-	@Override
+  @Override
   protected GenericUDAFAbstractRankEvaluator createEvaluator()
-	{
-		return new GenericUDAFCumeDistEvaluator();
-	}
+  {
+    return new GenericUDAFCumeDistEvaluator();
+  }
 
   public static class GenericUDAFCumeDistEvaluator extends GenericUDAFAbstractRankEvaluator
   {
