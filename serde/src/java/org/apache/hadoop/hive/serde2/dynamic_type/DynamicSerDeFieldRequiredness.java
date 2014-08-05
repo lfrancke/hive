@@ -29,7 +29,7 @@ public class DynamicSerDeFieldRequiredness extends SimpleNode {
    */
   public enum RequirednessTypes {
     Required, Skippable, Optional,
-  };
+  }
 
   /**
    * Is this a required, skippable or optional field. Used by DynamicSerDe for

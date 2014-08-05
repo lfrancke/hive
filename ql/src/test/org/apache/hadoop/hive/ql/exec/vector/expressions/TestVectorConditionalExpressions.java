@@ -160,7 +160,7 @@ public class TestVectorConditionalExpressions {
     try {
       b = s.getBytes("UTF-8");
     } catch (Exception e) {
-      ; // eat it
+      // eat it
     }
     return b;
   }
@@ -170,7 +170,7 @@ public class TestVectorConditionalExpressions {
     try {
       s = new String(v.vector[i], v.start[i], v.length[i], "UTF-8");
     } catch (Exception e) {
-      ; // eat it
+      // eat it
     }
     return s;
   }

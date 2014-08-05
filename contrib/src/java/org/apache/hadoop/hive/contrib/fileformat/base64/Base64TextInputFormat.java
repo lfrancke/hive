@@ -112,7 +112,6 @@ public class Base64TextInputFormat implements
         int i;
         for (i = 0; i < binaryData.length && i < signature.length
             && binaryData[i] == signature[i]; ++i) {
-          ;
         }
 
         // return the row only if it's not corrupted

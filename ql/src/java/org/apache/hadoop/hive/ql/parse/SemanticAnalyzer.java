@@ -828,7 +828,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
         processPTF(qb, child);
         PTFInvocationSpec ptfInvocationSpec = qb.getPTFInvocationSpec(child);
         String inputAlias = ptfInvocationSpec == null ? null :
-          ptfInvocationSpec.getFunction().getAlias();;
+          ptfInvocationSpec.getFunction().getAlias();
         if ( inputAlias == null ) {
           throw new SemanticException(generateErrorMessage(child,
               "PTF invocation in a Join must have an alias"));
@@ -5864,7 +5864,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
           if (!("".equals(nm[0])) && nm[1] != null) {
             colName = unescapeIdentifier(colInfo.getAlias()).toLowerCase(); // remove ``
           }
-          col.setName(colName);;
+          col.setName(colName);
           col.setType(colInfo.getType().getTypeName());
           field_schemas.add(col);
         }

@@ -135,11 +135,11 @@ public class GroupByOptimizer implements Transform {
 
   public enum GroupByOptimizerSortMatch {
     NO_MATCH, PARTIAL_MATCH, COMPLETE_MATCH
-  };
+  }
 
   private enum ColumnOrderMatch {
     NO_MATCH, PREFIX_COL1_MATCH, PREFIX_COL2_MATCH, COMPLETE_MATCH
-  };
+  }
 
   /**
    * SortGroupByProcessor.

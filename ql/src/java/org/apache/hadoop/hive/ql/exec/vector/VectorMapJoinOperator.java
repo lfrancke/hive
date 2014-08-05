@@ -167,7 +167,7 @@ public class VectorMapJoinOperator extends MapJoinOperator implements Vectorizat
 
       // This is a vectorized aware evaluator
       ExprNodeEvaluator eval = new ExprNodeEvaluator<ExprNodeDesc>(desc) {
-        int columnIndex;;
+        int columnIndex;
         int writerIndex;
 
         public ExprNodeEvaluator initVectorExpr(int columnIndex, int writerIndex) {

@@ -328,7 +328,7 @@ public class GenericUDAFAverage extends AbstractGenericUDAFResolver {
   private static class AverageAggregationBuffer<TYPE> implements AggregationBuffer {
     private long count;
     private TYPE sum;
-  };
+  }
 
   @SuppressWarnings("unchecked")
   public static abstract class AbstractGenericUDAFAverageEvaluator<TYPE> extends GenericUDAFEvaluator {
@@ -404,7 +404,7 @@ public class GenericUDAFAverage extends AbstractGenericUDAFResolver {
       double sum;
       @Override
       public int estimate() { return JavaDataModel.PRIMITIVES2 * 2; }
-    };
+    }
 
     @Override
     public void reset(AggregationBuffer aggregation) throws HiveException {

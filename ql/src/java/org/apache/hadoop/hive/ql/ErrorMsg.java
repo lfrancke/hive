@@ -461,7 +461,6 @@ public enum ErrorMsg {
   STATS_SKIPPING_BY_ERROR(30017, "Skipping stats aggregation by error {0}", true),
   ORC_CORRUPTED_READ(30018, "Corruption in ORC data encountered. To skip reading corrupted "
       + "data, set " + HiveConf.ConfVars.HIVE_ORC_SKIP_CORRUPT_DATA + " to true");
-  ;
 
   private int errorCode;
   private String mesg;

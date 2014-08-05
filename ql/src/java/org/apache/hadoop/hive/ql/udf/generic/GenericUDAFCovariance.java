@@ -234,7 +234,7 @@ public class GenericUDAFCovariance extends AbstractGenericUDAFResolver {
       double covar; // n times the covariance
       @Override
       public int estimate() { return JavaDataModel.PRIMITIVES2 * 4; }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

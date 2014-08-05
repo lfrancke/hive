@@ -56,7 +56,7 @@ public class TestFunctionRegistry extends TestCase {
     public void mismatch(TimestampWritable x, HiveDecimalWritable y) {}
     public void mismatch(BytesWritable x, DoubleWritable y) {}
     public void typeaffinity1(DateWritable x) {}
-    public void typeaffinity1(DoubleWritable x) {};
+    public void typeaffinity1(DoubleWritable x) {}
     public void typeaffinity1(Text x) {}
     public void typeaffinity2(IntWritable x) {}
     public void typeaffinity2(DoubleWritable x) {}

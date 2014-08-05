@@ -49,7 +49,7 @@ public class WriteEntity extends Entity implements Serializable {
     UPDATE,
     DELETE,
     PATH_WRITE, // Write to a URI, no locking done for this
-  };
+  }
 
   private WriteType writeType;
 

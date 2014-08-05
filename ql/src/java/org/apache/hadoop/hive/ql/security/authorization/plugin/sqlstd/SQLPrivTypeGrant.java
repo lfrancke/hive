@@ -96,4 +96,4 @@ public enum SQLPrivTypeGrant {
     return privDesc;
   }
 
-};
+}

@@ -49,7 +49,7 @@ public class DummyHiveMetastoreAuthorizationProvider implements HiveMetastoreAut
     PARTITION,
     TABLE_AND_PARTITION,
     AUTHORIZATION
-  };
+  }
 
   class AuthCallContext {
 
@@ -81,7 +81,7 @@ public class DummyHiveMetastoreAuthorizationProvider implements HiveMetastoreAut
 
   private Configuration conf;
   public static final Log LOG = LogFactory.getLog(
-      DummyHiveMetastoreAuthorizationProvider.class);;
+      DummyHiveMetastoreAuthorizationProvider.class);
 
   @Override
   public Configuration getConf() {

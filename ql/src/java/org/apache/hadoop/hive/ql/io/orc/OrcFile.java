@@ -98,7 +98,7 @@ public final class OrcFile {
   }
 
   public static enum EncodingStrategy {
-    SPEED, COMPRESSION;
+    SPEED, COMPRESSION
   }
 
   // Note : these string definitions for table properties are deprecated,

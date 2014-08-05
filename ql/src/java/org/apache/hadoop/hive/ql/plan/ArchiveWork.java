@@ -31,8 +31,7 @@ public class ArchiveWork implements Serializable {
 
   public static enum ArchiveActionType {
     ARCHIVE, UNARCHIVE
-  };
-
+  }
 
   public ArchiveActionType getType() {
     return type;

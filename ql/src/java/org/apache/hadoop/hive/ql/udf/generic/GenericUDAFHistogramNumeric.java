@@ -237,7 +237,7 @@ public class GenericUDAFHistogramNumeric extends AbstractGenericUDAFResolver {
       public int estimate() {
         return JavaDataModel.get().lengthFor(histogram);
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

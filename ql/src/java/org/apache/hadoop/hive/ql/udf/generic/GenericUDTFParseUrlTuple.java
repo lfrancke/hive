@@ -56,7 +56,7 @@ public class GenericUDTFParseUrlTuple extends GenericUDTF {
 
   enum PARTNAME {
     HOST, PATH, QUERY, REF, PROTOCOL, AUTHORITY, FILE, USERINFO, QUERY_WITH_KEY, NULLNAME
-  };
+  }
 
   private static Log LOG = LogFactory.getLog(GenericUDTFParseUrlTuple.class.getName());
 

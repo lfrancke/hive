@@ -72,7 +72,7 @@ public class PTFInvocationSpec {
     TABLE,
     SUBQUERY,
     PTFCOMPONENT,
-    WINDOWING;
+    WINDOWING
   }
 
   /*
@@ -485,7 +485,7 @@ public class PTFInvocationSpec {
   public static enum Order
   {
     ASC,
-    DESC;
+    DESC
   }
 
   public static class OrderExpression extends PartitionExpression

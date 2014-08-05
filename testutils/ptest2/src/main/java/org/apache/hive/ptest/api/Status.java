@@ -57,7 +57,7 @@ public class Status {
     PENDING(),
     IN_PROGRESS(),
     FAILED(),
-    OK();
+    OK()
   }
   public static void assertOK(Status status) {
     if(!isOK(status)) {

@@ -149,7 +149,7 @@ public final class GenericUDFUtils {
        * that.
        */
       if (commonTypeInfo instanceof DecimalTypeInfo) {
-        if ((!FunctionRegistry.isExactNumericType((PrimitiveTypeInfo) oiTypeInfo)) || 
+        if ((!FunctionRegistry.isExactNumericType((PrimitiveTypeInfo) oiTypeInfo)) ||
             (!FunctionRegistry.isExactNumericType((PrimitiveTypeInfo) rTypeInfo))) {
           commonTypeInfo = TypeInfoFactory.doubleTypeInfo;
         }
@@ -367,7 +367,7 @@ public final class GenericUDFUtils {
       }
       return convertedParameters;
     }
-  };
+  }
 
   /**
    * Helper class for UDFs returning string/varchar/char

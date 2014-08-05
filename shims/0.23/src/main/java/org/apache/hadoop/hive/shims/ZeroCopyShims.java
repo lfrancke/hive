@@ -43,12 +43,12 @@ class ZeroCopyShims {
     }
 
     @Override
-    public final ByteBuffer getBuffer(boolean direct, int length) {
+    public ByteBuffer getBuffer(boolean direct, int length) {
       return this.pool.getBuffer(direct, length);
     }
 
     @Override
-    public final void putBuffer(ByteBuffer buffer) {
+    public void putBuffer(ByteBuffer buffer) {
       this.pool.putBuffer(buffer);
     }
   }
@@ -56,9 +56,9 @@ class ZeroCopyShims {
   private static final class ZeroCopyAdapter implements ZeroCopyReaderShim {
     private final FSDataInputStream in;
     private final ByteBufferPoolAdapter pool;
-    private final static EnumSet<ReadOption> CHECK_SUM = EnumSet
+    private static final EnumSet<ReadOption> CHECK_SUM = EnumSet
         .noneOf(ReadOption.class);
-    private final static EnumSet<ReadOption> NO_CHECK_SUM = EnumSet
+    private static final EnumSet<ReadOption> NO_CHECK_SUM = EnumSet
         .of(ReadOption.SKIP_CHECKSUMS);
 
     public ZeroCopyAdapter(FSDataInputStream in, ByteBufferPoolShim poolshim) {
@@ -70,7 +70,7 @@ class ZeroCopyShims {
       }
     }
 
-    public final ByteBuffer readBuffer(int maxLength, boolean verifyChecksums)
+    public ByteBuffer readBuffer(int maxLength, boolean verifyChecksums)
         throws IOException {
       EnumSet<ReadOption> options = NO_CHECK_SUM;
       if (verifyChecksums) {
@@ -79,7 +79,7 @@ class ZeroCopyShims {
       return this.in.read(this.pool, maxLength, options);
     }
 
-    public final void releaseBuffer(ByteBuffer buffer) {
+    public void releaseBuffer(ByteBuffer buffer) {
       this.in.releaseBuffer(buffer);
     }
   }

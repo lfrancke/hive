@@ -62,7 +62,7 @@ public class VectorAggregationBufferBatch {
   /**
    * Array of indexes for aggregators that have variable size
    */
-  private int[] variableSizeAggregators;;
+  private int[] variableSizeAggregators;
 
   /**
    * returns True if any of the aggregators has a variable size

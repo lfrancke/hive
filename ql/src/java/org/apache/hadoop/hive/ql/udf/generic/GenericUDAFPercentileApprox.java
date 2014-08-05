@@ -359,7 +359,7 @@ public class GenericUDAFPercentileApprox extends AbstractGenericUDAFResolver {
         return model.lengthFor(histogram) +
             model.array() + JavaDataModel.PRIMITIVES2 * quantiles.length;
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

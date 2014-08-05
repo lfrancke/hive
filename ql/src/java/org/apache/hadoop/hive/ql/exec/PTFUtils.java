@@ -127,9 +127,7 @@ public class PTFUtils {
   public static abstract class Predicate<T>
   {
     public abstract boolean apply(T obj);
-  };
-
-
+  }
 
   /*
    * serialization functions

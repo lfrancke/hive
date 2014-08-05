@@ -58,7 +58,7 @@ public final class ObjectInspectorFactory {
    */
   public enum ObjectInspectorOptions {
     JAVA, THRIFT, PROTOCOL_BUFFERS
-  };
+  }
 
   private static ConcurrentHashMap<Type, ObjectInspector> objectInspectorCache = new ConcurrentHashMap<Type, ObjectInspector>();
 

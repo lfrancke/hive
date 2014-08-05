@@ -46,7 +46,7 @@ public class AlterIndexDesc extends DDLDesc implements Serializable {
    */
   public static enum AlterIndexTypes {
     UPDATETIMESTAMP,
-    ADDPROPS};
+    ADDPROPS}
 
   AlterIndexTypes op;
 

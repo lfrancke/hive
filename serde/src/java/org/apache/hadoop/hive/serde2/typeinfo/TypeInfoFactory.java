@@ -170,7 +170,7 @@ public final class TypeInfoFactory {
   public static DecimalTypeInfo getDecimalTypeInfo(int precision, int scale) {
     String fullName = DecimalTypeInfo.getQualifiedName(precision, scale);
     return (DecimalTypeInfo) getPrimitiveTypeInfo(fullName);
-  };
+  }
 
   public static TypeInfo getPrimitiveTypeInfoFromPrimitiveWritable(
       Class<?> clazz) {

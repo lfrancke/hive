@@ -253,7 +253,7 @@ public final class TypeInfoUtils {
       public String toString() {
         return "" + position + ":" + text;
       }
-    };
+    }
 
     private static boolean isTypeChar(char c) {
       return Character.isLetterOrDigit(c) || c == '_' || c == '.';

@@ -499,7 +499,7 @@ public class TestCliDriverMethods extends TestCase {
 
     public enum ClientResult {
       RETURN_OK, RETURN_SERVER_EXCEPTION, RETURN_T_EXCEPTION
-    };
+    }
 
     private final ClientResult result;
 
@@ -533,7 +533,6 @@ public class TestCliDriverMethods extends TestCase {
 
           when(result.fetchN(anyInt())).thenThrow(exception);
         } catch (TException e) {
-          ;
         }
         return result;
       } else if (ClientResult.RETURN_T_EXCEPTION.equals(this.result)) {

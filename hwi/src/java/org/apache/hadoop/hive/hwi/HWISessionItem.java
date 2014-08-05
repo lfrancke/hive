@@ -53,7 +53,7 @@ public class HWISessionItem implements Runnable, Comparable<HWISessionItem> {
   /** Represents the state a session item can be in. */
   public enum WebSessionItemStatus {
     NEW, READY, QUERY_SET, QUERY_RUNNING, DESTROY, KILL_QUERY
-  };
+  }
 
   /** The Web Interface sessionName this is used to identify the session. */
   private final String sessionName;

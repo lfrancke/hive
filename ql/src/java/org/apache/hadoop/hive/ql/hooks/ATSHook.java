@@ -51,10 +51,14 @@ public class ATSHook implements ExecuteWithHookContext {
   private static final Object LOCK = new Object();
   private static ExecutorService executor;
   private static TimelineClient timelineClient;
-  private enum EntityTypes { HIVE_QUERY_ID };
-  private enum EventTypes { QUERY_SUBMITTED, QUERY_COMPLETED };
-  private enum OtherInfoTypes { QUERY, STATUS, TEZ, MAPRED };
-  private enum PrimaryFilterTypes { user };
+  private enum EntityTypes { HIVE_QUERY_ID }
+
+  private enum EventTypes { QUERY_SUBMITTED, QUERY_COMPLETED }
+
+  private enum OtherInfoTypes { QUERY, STATUS, TEZ, MAPRED }
+
+  private enum PrimaryFilterTypes { user }
+
   private static final int WAIT_TIME = 3;
 
   public ATSHook() {

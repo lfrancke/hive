@@ -177,7 +177,7 @@ public class GenericUDAFVariance extends AbstractGenericUDAFResolver {
       double variance; // sum[x-avg^2] (this is actually n times the variance)
       @Override
       public int estimate() { return JavaDataModel.PRIMITIVES2 * 3; }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

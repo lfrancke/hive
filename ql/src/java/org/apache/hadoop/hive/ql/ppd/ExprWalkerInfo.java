@@ -63,7 +63,7 @@ public class ExprWalkerInfo implements NodeProcessorCtx {
   }
 
   protected static final Log LOG = LogFactory.getLog(OpProcFactory.class
-      .getName());;
+      .getName());
   private Operator<? extends OperatorDesc> op = null;
   private RowResolver toRR = null;
 

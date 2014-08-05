@@ -38,7 +38,7 @@ import org.apache.hadoop.hive.ql.security.authorization.HiveAuthorizationProvide
 @Evolving
 public interface HiveAuthorizer {
 
-  enum VERSION { V1 };
+  enum VERSION { V1 }
 
   /**
    * @return version of HiveAuthorizer interface that is implemented by this instance

@@ -103,13 +103,13 @@ public final class HiveUtils {
     return (escape.toString());
   }
 
-  static final byte[] escapeEscapeBytes = "\\\\".getBytes();;
+  static final byte[] escapeEscapeBytes = "\\\\".getBytes();
   static final byte[] escapeUnescapeBytes = "\\".getBytes();
-  static final byte[] newLineEscapeBytes = "\\n".getBytes();;
+  static final byte[] newLineEscapeBytes = "\\n".getBytes();
   static final byte[] newLineUnescapeBytes = "\n".getBytes();
-  static final byte[] carriageReturnEscapeBytes = "\\r".getBytes();;
+  static final byte[] carriageReturnEscapeBytes = "\\r".getBytes();
   static final byte[] carriageReturnUnescapeBytes = "\r".getBytes();
-  static final byte[] tabEscapeBytes = "\\t".getBytes();;
+  static final byte[] tabEscapeBytes = "\\t".getBytes();
   static final byte[] tabUnescapeBytes = "\t".getBytes();
   static final byte[] ctrlABytes = "\u0001".getBytes();
 

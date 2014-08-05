@@ -75,7 +75,8 @@ public class LogRetriever {
   static class AttemptInfo {
     public String id;
     public URL baseUrl;
-    public enum AttemptStatus {COMPLETED, FAILED};
+    public enum AttemptStatus {COMPLETED, FAILED}
+
     AttemptStatus status;
     public String startTime;
     public String endTime;

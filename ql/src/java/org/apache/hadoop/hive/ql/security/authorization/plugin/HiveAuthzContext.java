@@ -31,7 +31,7 @@ public final class HiveAuthzContext {
 
   public enum CLIENT_TYPE {
     HIVESERVER2, HIVECLI
-  };
+  }
 
   public static class Builder {
     private String userIpAddress;

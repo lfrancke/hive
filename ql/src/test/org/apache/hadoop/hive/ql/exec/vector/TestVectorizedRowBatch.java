@@ -267,7 +267,7 @@ public class TestVectorizedRowBatch {
       try {
         b = "foo".getBytes("UTF-8");
       } catch (Exception e) {
-        ; // eat it
+        // eat it
       }
       bv.setRef(0, b, 0, b.length);
       bv.flatten(true, sel, 2);

@@ -505,7 +505,7 @@ public class TestVectorFilterExpressions {
       b = "b".getBytes("UTF-8");
       c = "c".getBytes("UTF-8");
     } catch (Exception e) {
-      ; // won't happen
+      // won't happen
     }
   }
 

@@ -35,7 +35,7 @@ public interface ValidTxnList {
    * The response to a range query.  NONE means no values in this range match,
    * SOME mean that some do, and ALL means that every value does.
    */
-  enum RangeResponse {NONE, SOME, ALL};
+  enum RangeResponse {NONE, SOME, ALL}
 
   /**
    * Indicates whether a given transaction has been committed and should be

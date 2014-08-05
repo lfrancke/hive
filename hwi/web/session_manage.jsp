@@ -19,7 +19,7 @@
 --%>
 <%@page import="org.apache.hadoop.hive.hwi.*" %>
 <%@page errorPage="error_page.jsp" %>
-<% HWISessionManager hs = (HWISessionManager) application.getAttribute("hs");; %>
+<% HWISessionManager hs = (HWISessionManager) application.getAttribute("hs"); %>
 
 <% HWIAuth auth = (HWIAuth) session.getAttribute("auth"); %>
 <% if (auth==null) { %>

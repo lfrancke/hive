@@ -159,4 +159,4 @@ public class DynamicSerDeTypeMap extends DynamicSerDeTypeBase {
   public byte getType() {
     return TType.MAP;
   }
-};
+}

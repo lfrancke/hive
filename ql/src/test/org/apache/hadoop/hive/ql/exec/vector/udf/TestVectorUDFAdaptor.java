@@ -58,7 +58,7 @@ public class TestVectorUDFAdaptor {
       blue = "blue".getBytes("UTF-8");
       red = "red".getBytes("UTF-8");
     } catch (Exception e) {
-      ; // do nothing
+      // do nothing
     }
   }
 
@@ -168,7 +168,6 @@ public class TestVectorUDFAdaptor {
       result = "red:1:1.0".getBytes("UTF-8");
       result2 = "blue:0:0.0".getBytes("UTF-8");
     } catch (Exception e) {
-      ;
     }
     BytesColumnVector out = (BytesColumnVector) b.cols[3];
     int cmp = StringExpr.compare(result, 0, result.length, out.vector[1],
@@ -285,7 +284,6 @@ public class TestVectorUDFAdaptor {
       red = "red".getBytes("UTF-8");
       unknown = "UNKNOWN".getBytes("UTF-8");
     } catch (Exception e) {
-      ;
     }
     BytesColumnVector out;
 

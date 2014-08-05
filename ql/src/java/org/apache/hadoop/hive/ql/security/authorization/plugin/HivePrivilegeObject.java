@@ -81,10 +81,11 @@ public class HivePrivilegeObject implements Comparable<HivePrivilegeObject> {
 
   public enum HivePrivilegeObjectType {
     GLOBAL, DATABASE, TABLE_OR_VIEW, PARTITION, COLUMN, LOCAL_URI, DFS_URI, COMMAND_PARAMS, FUNCTION
-  } ;
+  }
+
   public enum HivePrivObjectActionType {
     OTHER, INSERT, INSERT_OVERWRITE
-  };
+  }
 
   private final HivePrivilegeObjectType type;
   private final String dbname;

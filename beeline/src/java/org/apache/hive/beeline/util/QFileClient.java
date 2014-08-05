@@ -135,7 +135,7 @@ public class QFileClient {
     .addFilter(userName, "!!{user.name}!!")
     .addFilter(operatorPattern, "\"$1_!!ELIDED!!\"")
     ;
-  };
+  }
 
   public QFileClient setUsername(String username) {
     this.username = username;
@@ -241,7 +241,7 @@ public class QFileClient {
     if (1 != beeLine.runCommands(new String[] { "!run " + qFileDirectory + "/" + qFileName })) {
       hasErrors = true;
     }
-    
+
     beeLine.runCommands(new String[] { "!record" });
   }
 

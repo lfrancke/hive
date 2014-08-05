@@ -35,7 +35,7 @@ public class Operation2Privilege {
 
   public enum IOType {
     INPUT, OUTPUT
-  };
+  }
 
   private static class PrivRequirement {
 

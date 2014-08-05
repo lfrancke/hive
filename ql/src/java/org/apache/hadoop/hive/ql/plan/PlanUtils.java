@@ -88,7 +88,7 @@ public final class PlanUtils {
    */
   public static enum ExpressionTypes {
     FIELD, JEXL
-  };
+  }
 
   public static synchronized long getCountForMapJoinDumpFilePrefix() {
     return countForMapJoinDumpFilePrefix++;
@@ -109,7 +109,7 @@ public final class PlanUtils {
   public static TableDesc getDefaultTableDesc(CreateTableDesc localDirectoryDesc,
       String cols, String colTypes ) {
     TableDesc ret = getDefaultTableDesc(Integer.toString(Utilities.ctrlaCode), cols,
-        colTypes, false);;
+        colTypes, false);
     if (localDirectoryDesc == null) {
       return ret;
     }

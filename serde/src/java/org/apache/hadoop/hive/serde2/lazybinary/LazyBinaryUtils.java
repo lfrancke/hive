@@ -254,7 +254,7 @@ public final class LazyBinaryUtils {
 
     public long value;
     public byte length;
-  };
+  }
 
   /**
    * Reads a zero-compressed encoded long from a byte array and returns it.
@@ -293,7 +293,7 @@ public final class LazyBinaryUtils {
 
     public int value;
     public byte length;
-  };
+  }
 
   public static final ThreadLocal<VInt> threadLocalVInt = new ThreadLocal<VInt>() {
     @Override

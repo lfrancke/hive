@@ -119,7 +119,7 @@ public class Vectorizer implements PhysicalPlanResolver {
 
   Set<String> supportedAggregationUdfs = new HashSet<String>();
 
-  private PhysicalContext physicalContext = null;;
+  private PhysicalContext physicalContext = null;
 
   public Vectorizer() {
 

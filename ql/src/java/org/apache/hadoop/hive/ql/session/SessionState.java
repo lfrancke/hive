@@ -145,7 +145,7 @@ public class SessionState {
 
   private HiveAuthorizer authorizerV2;
 
-  public enum AuthorizationMode{V1, V2};
+  public enum AuthorizationMode{V1, V2}
 
   private HiveAuthenticationProvider authenticator;
 
@@ -779,7 +779,7 @@ public class SessionState {
     }
     public void postHook(Set<String> cur, List<String> s) {
     }
-  };
+  }
 
   public static ResourceType find_resource_type(String s) {
 

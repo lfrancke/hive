@@ -3640,7 +3640,7 @@ public class DDLTask extends Task<DDLWork> implements Serializable {
       console.printInfo("Dropped the partition " + partition.getName());
       // We have already locked the table, don't lock the partitions.
       work.getOutputs().add(new WriteEntity(partition, WriteEntity.WriteType.DDL_NO_LOCK));
-    };
+    }
   }
 
   private void dropTable(Hive db, Table tbl, DropTableDesc dropTbl) throws HiveException {

@@ -92,7 +92,7 @@ public final class ConstantPropagateProcFactory {
 
   static {
     propagatableUdfs.add(GenericUDFOPAnd.class);
-  };
+  }
 
   private ConstantPropagateProcFactory() {
     // prevent instantiation

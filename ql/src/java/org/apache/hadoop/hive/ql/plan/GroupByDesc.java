@@ -50,7 +50,7 @@ public class GroupByDesc extends AbstractOperatorDesc {
    */
   public static enum Mode {
     COMPLETE, PARTIAL1, PARTIAL2, PARTIALS, FINAL, HASH, MERGEPARTIAL
-  };
+  }
 
   private Mode mode;
   private boolean groupKeyNotReductionKey;

@@ -1119,7 +1119,7 @@ public final class PrimitiveObjectInspectorUtils {
   public static enum PrimitiveGrouping {
     NUMERIC_GROUP, STRING_GROUP, BOOLEAN_GROUP, DATE_GROUP, BINARY_GROUP,
     VOID_GROUP, UNKNOWN_GROUP
-  };
+  }
 
   /**
    * Based on the PrimitiveCategory of a type, return the PrimitiveGrouping

@@ -395,7 +395,6 @@ public abstract class BitSetCheckedAuthorizationProvider extends
         && privileges.getRolePrivileges().size() > 0) {
       Collection<List<PrivilegeGrantInfo>> rolePrivsCollection = privileges
           .getRolePrivileges().values();
-      ;
       List<String> rolePrivs = getPrivilegeStringList(rolePrivsCollection);
       if (rolePrivs != null && rolePrivs.size() > 0) {
         for (String priv : rolePrivs) {

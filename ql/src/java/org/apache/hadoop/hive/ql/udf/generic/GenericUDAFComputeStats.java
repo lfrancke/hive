@@ -190,7 +190,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
         JavaDataModel model = JavaDataModel.get();
         return model.primitive2() * 3 + model.lengthFor(columnType);
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {
@@ -480,7 +480,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
         countNulls = 0;
         numDV = null;
       }
-    };
+    }
 
     @Override
     public void iterate(AggregationBuffer agg, Object[] parameters) throws HiveException {
@@ -605,7 +605,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
           max = maxFieldOI.get(maxValue);
         }
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {
@@ -668,7 +668,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
           max = maxFieldOI.get(maxValue);
         }
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {
@@ -832,7 +832,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
         return model.primitive1() * 2 + model.primitive2() * 4 +
             model.lengthFor(columnType) + model.lengthFor(numDV);
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {
@@ -1130,7 +1130,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
         JavaDataModel model = JavaDataModel.get();
         return model.primitive2() * 4 + model.lengthFor(columnType);
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {
@@ -1300,7 +1300,7 @@ public class GenericUDAFComputeStats extends AbstractGenericUDAFResolver {
           max = maxFieldOI.getPrimitiveJavaObject(maxValue);
         }
       }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

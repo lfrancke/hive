@@ -334,7 +334,7 @@ public class GenericUDAFnGrams implements GenericUDAFResolver {
     static class NGramAggBuf extends AbstractAggregationBuffer {
       NGramEstimator nge;
       int n;
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

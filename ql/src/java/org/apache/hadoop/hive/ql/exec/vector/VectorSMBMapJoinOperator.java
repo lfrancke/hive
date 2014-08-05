@@ -175,7 +175,7 @@ public class VectorSMBMapJoinOperator extends SMBMapJoinOperator implements Vect
           key.set(i, keyWrapperBatch.getWritableKeyValue(kw, i, keyOutputWriters[i]));
         }
         return key;
-      };
+      }
     }.init();
     
     Map<Byte, List<ExprNodeDesc>> valueExpressions = conf.getExprs();
@@ -202,7 +202,7 @@ public class VectorSMBMapJoinOperator extends SMBMapJoinOperator implements Vect
 
       // This is a vectorized aware evaluator
       ExprNodeEvaluator eval = new ExprNodeEvaluator<ExprNodeDesc>(desc) {
-        int columnIndex;;
+        int columnIndex;
         int writerIndex;
 
         public ExprNodeEvaluator initVectorExpr(int columnIndex, int writerIndex) {

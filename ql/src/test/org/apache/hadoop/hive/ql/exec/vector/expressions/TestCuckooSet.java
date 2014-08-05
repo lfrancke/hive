@@ -195,7 +195,7 @@ public class TestCuckooSet {
     try {
       v = s.getBytes("UTF-8");
     } catch (Exception e) {
-      ; // won't happen
+      // won't happen
     }
     return v;
   }
@@ -207,7 +207,7 @@ public class TestCuckooSet {
       try {
         values[i] = strings[i].getBytes("UTF-8");
       } catch (Exception e) {
-        ; // can't happen
+        // can't happen
       }
     }
     return values;

@@ -479,7 +479,7 @@ public class WindowingSpec {
         setOrder(order);
       }
     }
-  };
+  }
 
   /*
    * A WindowFrame specifies the Range on which a Window Function should
@@ -539,7 +539,7 @@ public class WindowingSpec {
     PRECEDING,
     CURRENT,
     FOLLOWING
-  };
+  }
 
   /*
    * A Boundary specifies how many rows back/forward a WindowFrame extends from the

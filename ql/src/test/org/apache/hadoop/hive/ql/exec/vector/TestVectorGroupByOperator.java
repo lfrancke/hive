@@ -2030,7 +2030,7 @@ public class TestVectorGroupByOperator {
 
   public interface Validator {
     void validate (String key, Object expected, Object result);
-  };
+  }
 
   public static class ValueValidator implements Validator {
     @Override

@@ -392,7 +392,7 @@ public class GenericUDAFContextNGrams implements GenericUDAFResolver {
     static class NGramAggBuf extends AbstractAggregationBuffer {
       ArrayList<String> context;
       NGramEstimator nge;
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

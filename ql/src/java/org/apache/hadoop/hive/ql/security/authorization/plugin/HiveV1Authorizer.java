@@ -304,7 +304,7 @@ public class HiveV1Authorizer implements HiveAuthorizer {
         // show all privileges
         privs.addAll(hive.showPrivilegeGrant(null, name, type, null, null, null, null));
       } else {
-        Database dbObj = hive.getDatabase(privObj.getDbname());;
+        Database dbObj = hive.getDatabase(privObj.getDbname());
         if (dbObj == null) {
           throw new HiveException("Database " + privObj.getDbname() + " does not exists");
         }

@@ -349,7 +349,7 @@ public abstract class TestHiveMetaStore extends TestCase {
       // Test append_partition_by_name
       client.appendPartition(dbName, tblName, partName);
       Partition part5 = client.getPartition(dbName, tblName, part.getValues());
-      assertTrue("Append partition by name failed", part5.getValues().equals(vals));;
+      assertTrue("Append partition by name failed", part5.getValues().equals(vals));
       Path part5Path = new Path(part5.getSd().getLocation());
       assertTrue(fs.exists(part5Path));
 

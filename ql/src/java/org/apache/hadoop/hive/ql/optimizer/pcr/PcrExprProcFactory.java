@@ -353,7 +353,7 @@ public final class PcrExprProcFactory {
         return new NodeInfoWrapper(WalkState.CONSTANT, null, getOutExpr(fd, nodeOutputs));
       }
     }
-  };
+  }
 
   /**
    * FieldExprProcessor.

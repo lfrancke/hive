@@ -33,7 +33,7 @@ public class AlterDatabaseDesc extends DDLDesc implements Serializable {
   // Only altering the database property and owner is currently supported
   public static enum ALTER_DB_TYPES {
     ALTER_PROPERTY, ALTER_OWNER
-  };
+  }
 
   ALTER_DB_TYPES alterType;
   String databaseName;

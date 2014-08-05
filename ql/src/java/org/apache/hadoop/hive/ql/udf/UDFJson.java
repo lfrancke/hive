@@ -227,7 +227,7 @@ public class UDFJson extends UDF {
     public void removeRange(int fromIndex, int toIndex) {
       super.removeRange(fromIndex, toIndex);
     }
-  };
+  }
 
   @SuppressWarnings("unchecked")
   private Object extract_json_withindex(Object json, ArrayList<String> indexList) {

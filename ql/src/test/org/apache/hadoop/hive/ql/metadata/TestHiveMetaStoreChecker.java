@@ -159,7 +159,7 @@ public class TestHiveMetaStoreChecker extends TestCase {
     // now this shouldn't find the path on the fs
     result = new CheckResult();
     checker.checkMetastore(dbName, tableName, null, result);
-    assertEquals(Collections.<String>emptyList(), result.getTablesNotInMs());;
+    assertEquals(Collections.<String>emptyList(), result.getTablesNotInMs());
     assertEquals(1, result.getTablesNotOnFs().size());
     assertEquals(tableName, result.getTablesNotOnFs().get(0));
     assertEquals(Collections.<String>emptyList(), result.getPartitionsNotOnFs());

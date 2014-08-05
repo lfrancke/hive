@@ -186,7 +186,6 @@ public class UDFConv extends UDF {
 
     // Find the first non-zero digit or the last digits if all are zero.
     for (first = 0; first < value.length - 1 && value[first] == 0; first++) {
-      ;
     }
 
     byte2char(Math.abs(toBs), first);

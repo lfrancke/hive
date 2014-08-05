@@ -36,7 +36,7 @@ public class QBExpr {
    */
   public static enum Opcode {
     NULLOP, UNION, INTERSECT, DIFF
-  };
+  }
 
   private Opcode opcode;
   private QBExpr qbexpr1;

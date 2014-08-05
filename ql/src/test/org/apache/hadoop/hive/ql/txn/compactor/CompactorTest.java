@@ -241,7 +241,7 @@ public abstract class CompactorTest {
     return location;
   }
 
-  private enum FileType {BASE, DELTA, LEGACY};
+  private enum FileType {BASE, DELTA, LEGACY}
 
   private void addFile(HiveConf conf, Table t, Partition p, long minTxn, long maxTxn,
                        int numRecords,  FileType type, int numBuckets,

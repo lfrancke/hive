@@ -325,7 +325,7 @@ public class HiveInputFormat<K extends WritableComparable, V extends Writable>
     boolean pushDownProjection = false;
     //Buffers to hold filter pushdown information
     StringBuilder readColumnsBuffer = new StringBuilder(newjob.
-      get(ColumnProjectionUtils.READ_COLUMN_IDS_CONF_STR, ""));;
+      get(ColumnProjectionUtils.READ_COLUMN_IDS_CONF_STR, ""));
     StringBuilder readColumnNamesBuffer = new StringBuilder(newjob.
       get(ColumnProjectionUtils.READ_COLUMN_NAMES_CONF_STR, ""));
     // for each dir, get the InputFormat, and do getSplits.

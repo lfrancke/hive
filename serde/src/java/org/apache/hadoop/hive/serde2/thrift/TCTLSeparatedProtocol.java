@@ -292,7 +292,7 @@ public class TCTLSeparatedProtocol extends TProtocol implements
       final String theRet = ret == null ? null : ret.toString();
       return theRet;
     }
-  };
+  }
 
   /**
    * The simple constructor which assumes ctl-a, ctl-b and '\n' separators and

@@ -208,7 +208,7 @@ public final class Utilities {
    */
   public static enum ReduceField {
     KEY, VALUE
-  };
+  }
 
   public static List<String> reduceFieldNameList;
   static {
@@ -976,7 +976,7 @@ public final class Utilities {
       removeField(kryo, MapWork.class, "opParseCtxMap");
       removeField(kryo, MapWork.class, "joinTree");
       return kryo;
-    };
+    }
   };
   @SuppressWarnings("rawtypes")
   protected static void removeField(Kryo kryo, Class type, String fieldName) {
@@ -995,7 +995,7 @@ public final class Utilities {
       kryo.register(Path.class, new PathSerializer());
       kryo.setInstantiatorStrategy(new StdInstantiatorStrategy());
       return kryo;
-    };
+    }
   };
 
   public static TableDesc defaultTd;

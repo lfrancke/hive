@@ -71,7 +71,7 @@ public class ThriftHttpCLIService extends ThriftCLIService {
       threadPool.setMaxThreads(maxWorkerThreads);
       httpServer.setThreadPool(threadPool);
 
-      SelectChannelConnector connector = new SelectChannelConnector();;
+      SelectChannelConnector connector = new SelectChannelConnector();
       boolean useSsl = hiveConf.getBoolVar(ConfVars.HIVE_SERVER2_USE_SSL);
       String schemeName = useSsl ? "https" : "http";
       String authType = hiveConf.getVar(ConfVars.HIVE_SERVER2_AUTHENTICATION);

@@ -256,7 +256,7 @@ public class GenericUDAFCorrelation extends AbstractGenericUDAFResolver {
       double covar; // n times the covariance
       @Override
       public int estimate() { return JavaDataModel.PRIMITIVES2 * 6; }
-    };
+    }
 
     @Override
     public AggregationBuffer getNewAggregationBuffer() throws HiveException {

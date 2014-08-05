@@ -302,8 +302,7 @@ public final class RewriteCanApplyCtx implements NodeProcessorCtx {
   //Map for base table to index table mapping
   //TableScan operator for base table will be modified to read from index table
   private final Map<String, String> baseToIdxTableMap =
-    new HashMap<String, String>();;
-
+    new HashMap<String, String>();
 
   public void addTable(String baseTableName, String indexTableName) {
      baseToIdxTableMap.put(baseTableName, indexTableName);

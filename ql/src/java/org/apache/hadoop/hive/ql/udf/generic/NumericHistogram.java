@@ -51,7 +51,7 @@ public class NumericHistogram {
       }
       return 0;
     }
-  };
+  }
 
   // Class variables
   private int nbins;

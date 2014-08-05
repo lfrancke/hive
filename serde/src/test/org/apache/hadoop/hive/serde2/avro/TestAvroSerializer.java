@@ -226,7 +226,8 @@ public class TestAvroSerializer {
     assertEquals(dec.setScale(4), dec1);
   }
 
-  private enum enum1 {BLUE, RED , GREEN};
+  private enum enum1 {BLUE, RED , GREEN}
+
   @Test
   public void canSerializeEnums() throws SerDeException, IOException {
     String type = "{\"type\": \"enum\", \"name\": \"enum1_values\", " +

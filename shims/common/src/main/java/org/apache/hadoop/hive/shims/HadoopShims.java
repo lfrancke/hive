@@ -254,7 +254,7 @@ public interface HadoopShims {
   String addServiceToToken(String tokenStr, String tokenService)
       throws IOException;
 
-  enum JobTrackerState { INITIALIZING, RUNNING };
+  enum JobTrackerState { INITIALIZING, RUNNING }
 
   /**
    * Convert the ClusterStatus to its Thrift equivalent: JobTrackerState.
@@ -657,7 +657,7 @@ public interface HadoopShims {
     ZLIB_NOHEADER,
     ZLIB,
     SNAPPY,
-  };
+  }
 
   interface DirectDecompressorShim {
     void decompress(ByteBuffer src, ByteBuffer dst) throws IOException;

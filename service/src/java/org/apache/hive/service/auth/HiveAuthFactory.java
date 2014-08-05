@@ -65,7 +65,7 @@ public class HiveAuthFactory {
       return authType;
     }
 
-  };
+  }
 
   private HadoopThriftAuthBridge.Server saslServer = null;
   private String authTypeStr;

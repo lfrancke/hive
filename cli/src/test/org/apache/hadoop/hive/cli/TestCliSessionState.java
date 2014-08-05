@@ -115,7 +115,6 @@ public class TestCliSessionState {
           output.write(buffer, 0, read);
         }
       } catch (IOException e) {
-        ;
       }
 
     }

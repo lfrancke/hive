@@ -116,7 +116,6 @@ public enum HiveOperation {
       new Privilege[]{Privilege.ALTER_DATA}),
   SHOW_COMPACTIONS("SHOW COMPACTIONS", null, null),
   SHOW_TRANSACTIONS("SHOW TRANSACTIONS", null, null);
-  ;
 
   private String operationName;
 

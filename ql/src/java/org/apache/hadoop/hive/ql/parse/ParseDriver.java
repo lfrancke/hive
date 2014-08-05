@@ -149,12 +149,12 @@ public class ParseDriver {
     public Object dupNode(Object t) {
 
       return create(((CommonTree)t).token);
-    };
+    }
 
     @Override
     public Object errorNode(TokenStream input, Token start, Token stop, RecognitionException e) {
       return new ASTErrorNode(input, start, stop, e);
-    };
+    }
   };
 
   public ASTNode parse(String command) throws ParseException {

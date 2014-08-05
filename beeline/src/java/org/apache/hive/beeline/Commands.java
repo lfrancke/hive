@@ -817,7 +817,6 @@ public class Commands {
   public boolean closeall(String line) {
     if (close(null)) {
       while (close(null)) {
-        ;
       }
       return true;
     }
