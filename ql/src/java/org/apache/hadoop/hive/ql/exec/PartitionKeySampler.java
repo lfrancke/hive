@@ -46,7 +46,7 @@ import org.apache.hadoop.mapred.OutputCollector;
 public class PartitionKeySampler implements OutputCollector<HiveKey, Object> {
 
   public static final Comparator<byte[]> C = new Comparator<byte[]>() {
-    public final int compare(byte[] o1, byte[] o2) {
+    public int compare(byte[] o1, byte[] o2) {
       return WritableComparator.compareBytes(o1, 0, o1.length, o2, 0, o2.length);
     }
   };
