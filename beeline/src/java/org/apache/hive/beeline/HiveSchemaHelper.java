@@ -28,58 +28,58 @@ public class HiveSchemaHelper {
 
   public interface NestedScriptParser {
 
-    public enum CommandType {
+    enum CommandType {
       PARTIAL_STATEMENT,
       TERMINATED_STATEMENT,
       COMMENT
     }
 
-    static final String DEFAUTL_DELIMITER = ";";
+    String DEFAUTL_DELIMITER = ";";
     /***
      * Find the type of given command
      * @param dbCommand
      * @return
      */
-    public boolean isPartialCommand(String dbCommand) throws IllegalArgumentException;
+    boolean isPartialCommand(String dbCommand) throws IllegalArgumentException;
 
     /** Parse the DB specific nesting format and extract the inner script name if any
      * @param dbCommand command from parent script
      * @return
      * @throws IllegalFormatException
      */
-    public String getScriptName(String dbCommand) throws IllegalArgumentException;
+    String getScriptName(String dbCommand) throws IllegalArgumentException;
 
     /***
      * Find if the given command is a nested script execution
      * @param dbCommand
      * @return
      */
-    public boolean isNestedScript(String dbCommand);
+    boolean isNestedScript(String dbCommand);
 
     /***
      * Find if the given command is should be passed to DB
      * @param dbCommand
      * @return
      */
-    public boolean isNonExecCommand(String dbCommand);
+    boolean isNonExecCommand(String dbCommand);
 
     /***
      * Get the SQL statement delimiter
      * @return
      */
-    public String getDelimiter();
+    String getDelimiter();
 
     /***
      * Clear any client specific tags
      * @return
      */
-    public String cleanseCommand(String dbCommand);
+    String cleanseCommand(String dbCommand);
 
     /***
      * Does the DB required table/column names quoted
      * @return
      */
-    public boolean needsQuotedIdentifier();
+    boolean needsQuotedIdentifier();
   }
 
 
@@ -88,7 +88,7 @@ public class HiveSchemaHelper {
    * abstractCommandParser.
    *
    */
-  private static abstract class AbstractCommandParser implements NestedScriptParser {
+  private abstract static class AbstractCommandParser implements NestedScriptParser {
 
     @Override
     public boolean isPartialCommand(String dbCommand) throws IllegalArgumentException{

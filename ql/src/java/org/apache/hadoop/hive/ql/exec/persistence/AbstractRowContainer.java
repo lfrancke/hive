@@ -22,27 +22,27 @@ import org.apache.hadoop.hive.ql.metadata.HiveException;
 
 public interface AbstractRowContainer<ROW> {
 
-  public interface RowIterator<ROW> {
-    public ROW first() throws HiveException;
-    public ROW next() throws HiveException;
+  interface RowIterator<ROW> {
+    ROW first() throws HiveException;
+    ROW next() throws HiveException;
   }
 
-  public RowIterator<ROW> rowIter() throws HiveException;
+  RowIterator<ROW> rowIter() throws HiveException;
 
   /**
    * add a row into the RowContainer
    *
    * @param t row
    */
-  public void addRow(ROW t) throws HiveException;
+  void addRow(ROW t) throws HiveException;
 
   /**
    * @return number of elements in the RowContainer
    */
-  public int rowCount() throws HiveException;
+  int rowCount() throws HiveException;
 
   /**
    * Remove all elements in the RowContainer.
    */
-  public void clearRows() throws HiveException;
+  void clearRows() throws HiveException;
 }

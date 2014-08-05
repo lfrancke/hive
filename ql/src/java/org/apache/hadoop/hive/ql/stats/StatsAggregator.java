@@ -35,7 +35,7 @@ public interface StatsAggregator {
    * @param sourceTask
    * @return true if connection is successful, false otherwise.
    */
-  public boolean connect(Configuration hconf, Task sourceTask);
+  boolean connect(Configuration hconf, Task sourceTask);
 
   /**
    * This method aggregates a given statistic from all tasks (partial stats).
@@ -58,14 +58,14 @@ public interface StatsAggregator {
    *          a string noting the key to be published. Ex: "numRows".
    * @return a string representation of a long value, null if there are any error/exception.
    */
-  public String aggregateStats(String keyPrefix, String statType);
+  String aggregateStats(String keyPrefix, String statType);
 
   /**
    * This method closes the connection to the temporary storage.
    *
    * @return true if close connection is successful, false otherwise.
    */
-  public boolean closeConnection();
+  boolean closeConnection();
 
   /**
    * This method is called after all statistics have been aggregated. Since we support multiple
@@ -81,5 +81,5 @@ public interface StatsAggregator {
    *          as the first parameter in aggregateStats().
    * @return true if cleanup is successful, false otherwise.
    */
-  public boolean cleanUp(String keyPrefix);
+  boolean cleanUp(String keyPrefix);
 }

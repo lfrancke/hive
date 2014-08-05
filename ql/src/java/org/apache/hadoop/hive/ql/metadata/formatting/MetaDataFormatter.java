@@ -42,20 +42,21 @@ public interface MetaDataFormatter {
    * Write an error message.
    * @param sqlState if {@code null}, will be ignored
    */
-  public void error(OutputStream out, String msg, int errorCode, String sqlState)
+  void error(OutputStream out, String msg, int errorCode, String sqlState)
       throws HiveException;
 
   /**
    * @param sqlState if {@code null}, will be skipped in output
    * @param errorDetail usually string version of some Exception, if {@code null}, will be ignored
    */
-  public void error(OutputStream out, String errorMessage, int errorCode, String sqlState, String errorDetail)
+  void error(OutputStream out, String errorMessage, int errorCode, String sqlState,
+    String errorDetail)
       throws HiveException;
 
   /**
    * Show a list of tables.
    */
-  public void showTables(DataOutputStream out, Set<String> tables)
+  void showTables(DataOutputStream out, Set<String> tables)
       throws HiveException;
 
   /**
@@ -73,41 +74,35 @@ public interface MetaDataFormatter {
    * @param colStats
    * @throws HiveException
    */
-  public void describeTable(DataOutputStream out, String colPath,
-      String tableName, Table tbl, Partition part, List<FieldSchema> cols,
-      boolean isFormatted, boolean isExt, boolean isPretty,
-      boolean isOutputPadded, List<ColumnStatisticsObj> colStats)
+  void describeTable(DataOutputStream out, String colPath, String tableName, Table tbl,
+    Partition part, List<FieldSchema> cols, boolean isFormatted, boolean isExt, boolean isPretty,
+    boolean isOutputPadded, List<ColumnStatisticsObj> colStats)
           throws HiveException;
 
   /**
    * Show the table status.
    */
-  public void showTableStatus(DataOutputStream out,
-      Hive db,
-      HiveConf conf,
-      List<Table> tbls,
-      Map<String, String> part,
-      Partition par)
+  void showTableStatus(DataOutputStream out, Hive db, HiveConf conf, List<Table> tbls,
+    Map<String, String> part, Partition par)
           throws HiveException;
 
   /**
    * Show the table partitions.
    */
-  public void showTablePartitons(DataOutputStream out,
-      List<String> parts)
+  void showTablePartitons(DataOutputStream out, List<String> parts)
           throws HiveException;
 
   /**
    * Show the databases
    */
-  public void showDatabases(DataOutputStream out, List<String> databases)
+  void showDatabases(DataOutputStream out, List<String> databases)
       throws HiveException;
 
   /**
    * Describe a database.
    */
-  public void showDatabaseDescription (DataOutputStream out, String database, String comment,
-      String location, String ownerName, String ownerType, Map<String, String> params)
+  void showDatabaseDescription(DataOutputStream out, String database, String comment,
+    String location, String ownerName, String ownerType, Map<String, String> params)
           throws HiveException;
 }
 

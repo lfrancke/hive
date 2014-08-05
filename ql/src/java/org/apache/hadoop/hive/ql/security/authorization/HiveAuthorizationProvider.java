@@ -34,11 +34,11 @@ import org.apache.hadoop.hive.ql.security.HiveAuthenticationProvider;
  */
 public interface HiveAuthorizationProvider extends Configurable{
 
-  public void init(Configuration conf) throws HiveException;
+  void init(Configuration conf) throws HiveException;
 
-  public HiveAuthenticationProvider getAuthenticator();
+  HiveAuthenticationProvider getAuthenticator();
 
-  public void setAuthenticator(HiveAuthenticationProvider authenticator);
+  void setAuthenticator(HiveAuthenticationProvider authenticator);
 
   /**
    * Authorization user level privileges.
@@ -50,8 +50,7 @@ public interface HiveAuthorizationProvider extends Configurable{
    * @throws HiveException
    * @throws AuthorizationException
    */
-  public void authorize(Privilege[] readRequiredPriv,
-      Privilege[] writeRequiredPriv) throws HiveException,
+  void authorize(Privilege[] readRequiredPriv, Privilege[] writeRequiredPriv) throws HiveException,
       AuthorizationException;
 
   /**
@@ -66,9 +65,8 @@ public interface HiveAuthorizationProvider extends Configurable{
    * @throws HiveException
    * @throws AuthorizationException
    */
-  public void authorize(Database db, Privilege[] readRequiredPriv,
-      Privilege[] writeRequiredPriv) throws HiveException,
-      AuthorizationException;
+  void authorize(Database db, Privilege[] readRequiredPriv, Privilege[] writeRequiredPriv)
+    throws HiveException, AuthorizationException;
 
   /**
    * Authorization privileges against a hive table object.
@@ -82,9 +80,8 @@ public interface HiveAuthorizationProvider extends Configurable{
    * @throws HiveException
    * @throws AuthorizationException
    */
-  public void authorize(Table table, Privilege[] readRequiredPriv,
-      Privilege[] writeRequiredPriv) throws HiveException,
-      AuthorizationException;
+  void authorize(Table table, Privilege[] readRequiredPriv, Privilege[] writeRequiredPriv)
+    throws HiveException, AuthorizationException;
 
   /**
    * Authorization privileges against a hive partition object.
@@ -98,9 +95,8 @@ public interface HiveAuthorizationProvider extends Configurable{
    * @throws HiveException
    * @throws AuthorizationException
    */
-  public void authorize(Partition part, Privilege[] readRequiredPriv,
-      Privilege[] writeRequiredPriv) throws HiveException,
-      AuthorizationException;
+  void authorize(Partition part, Privilege[] readRequiredPriv, Privilege[] writeRequiredPriv)
+    throws HiveException, AuthorizationException;
 
   /**
    * Authorization privileges against a list of columns. If the partition object
@@ -120,8 +116,8 @@ public interface HiveAuthorizationProvider extends Configurable{
    * @throws HiveException
    * @throws AuthorizationException
    */
-  public void authorize(Table table, Partition part, List<String> columns,
-      Privilege[] readRequiredPriv, Privilege[] writeRequiredPriv)
+  void authorize(Table table, Partition part, List<String> columns, Privilege[] readRequiredPriv,
+    Privilege[] writeRequiredPriv)
       throws HiveException, AuthorizationException;
 
 }

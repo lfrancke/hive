@@ -51,23 +51,23 @@ public interface HiveStorageHandler extends Configurable {
   /**
    * @return Class providing an implementation of {@link InputFormat}
    */
-  public Class<? extends InputFormat> getInputFormatClass();
+  Class<? extends InputFormat> getInputFormatClass();
 
   /**
    * @return Class providing an implementation of {@link OutputFormat}
    */
-  public Class<? extends OutputFormat> getOutputFormatClass();
+  Class<? extends OutputFormat> getOutputFormatClass();
 
   /**
    * @return Class providing an implementation of {@link SerDe}
    */
-  public Class<? extends SerDe> getSerDeClass();
+  Class<? extends SerDe> getSerDeClass();
 
   /**
    * @return metadata hook implementation, or null if this
    * storage handler does not need any metadata notifications
    */
-  public HiveMetaHook getMetaHook();
+  HiveMetaHook getMetaHook();
 
   /**
    * Returns the implementation specific authorization provider
@@ -75,7 +75,7 @@ public interface HiveStorageHandler extends Configurable {
    * @return authorization provider
    * @throws HiveException
    */
-  public HiveAuthorizationProvider getAuthorizationProvider()
+  HiveAuthorizationProvider getAuthorizationProvider()
     throws HiveException;
 
   /**
@@ -95,8 +95,7 @@ public interface HiveStorageHandler extends Configurable {
    * @param jobProperties receives properties copied or transformed
    * from the table properties
    */
-  public abstract void configureInputJobProperties(TableDesc tableDesc,
-    Map<String, String> jobProperties);
+  void configureInputJobProperties(TableDesc tableDesc, Map<String, String> jobProperties);
 
   /**
    * This method is called to allow the StorageHandlers the chance
@@ -115,8 +114,7 @@ public interface HiveStorageHandler extends Configurable {
    * @param jobProperties receives properties copied or transformed
    * from the table properties
    */
-  public abstract void configureOutputJobProperties(TableDesc tableDesc,
-    Map<String, String> jobProperties);
+  void configureOutputJobProperties(TableDesc tableDesc, Map<String, String> jobProperties);
 
   /**
    * Deprecated use configureInputJobProperties/configureOutputJobProperties
@@ -131,9 +129,7 @@ public interface HiveStorageHandler extends Configurable {
    * from the table properties
    */
   @Deprecated
-  public void configureTableJobProperties(
-    TableDesc tableDesc,
-    Map<String, String> jobProperties);
+  void configureTableJobProperties(TableDesc tableDesc, Map<String, String> jobProperties);
 
   /**
    * Called just before submitting MapReduce job.
@@ -141,5 +137,5 @@ public interface HiveStorageHandler extends Configurable {
    * @param tableDesc descriptor for the table being accessed
    * @param JobConf jobConf for MapReduce job
    */
-  public void configureJobConf(TableDesc tableDesc, JobConf jobConf);
+  void configureJobConf(TableDesc tableDesc, JobConf jobConf);
 }

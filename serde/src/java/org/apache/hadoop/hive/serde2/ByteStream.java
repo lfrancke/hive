@@ -95,12 +95,12 @@ public class ByteStream {
     }
   }
 
-  public static interface RandomAccessOutput {
-    public void writeInt(long offset, int value);
-    public void reserve(int byteCount);
-    public void write(int b);
-    public void write(byte b[]) throws IOException;
-    public void write(byte b[], int off, int len);
-    public int getLength();
+  public interface RandomAccessOutput {
+    void writeInt(long offset, int value);
+    void reserve(int byteCount);
+    void write(int b);
+    void write(byte b[]) throws IOException;
+    void write(byte b[], int off, int len);
+    int getLength();
   }
 }

@@ -35,14 +35,14 @@ public interface HiveSemanticAnalyzerHookContext extends Configurable{
    * @return the Hive db instance; hook implementations can use this for
    * purposes such as getting configuration information or making metastore calls
    */
-  public Hive getHive() throws HiveException;
+  Hive getHive() throws HiveException;
 
 
   /**
    * This should be called after the semantic analyzer completes.
    * @param sem
    */
-  public void update(BaseSemanticAnalyzer sem);
+  void update(BaseSemanticAnalyzer sem);
 
 
   /**
@@ -50,11 +50,11 @@ public interface HiveSemanticAnalyzerHookContext extends Configurable{
    * preAnalyze method, they should return null.
    * @return the set of read entities
    */
-  public Set<ReadEntity> getInputs();
+  Set<ReadEntity> getInputs();
 
-  public Set<WriteEntity> getOutputs();
+  Set<WriteEntity> getOutputs();
 
-  public String getUserName();
+  String getUserName();
 
-  public void setUserName(String userName);
+  void setUserName(String userName);
 }

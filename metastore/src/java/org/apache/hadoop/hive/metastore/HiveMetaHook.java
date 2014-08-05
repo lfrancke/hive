@@ -39,7 +39,7 @@ public interface HiveMetaHook {
    *
    * @param table new table definition
    */
-  public void preCreateTable(Table table)
+  void preCreateTable(Table table)
     throws MetaException;
 
   /**
@@ -48,7 +48,7 @@ public interface HiveMetaHook {
    *
    * @param table new table definition
    */
-  public void rollbackCreateTable(Table table)
+  void rollbackCreateTable(Table table)
     throws MetaException;
 
   /**
@@ -57,7 +57,7 @@ public interface HiveMetaHook {
    *
    * @param table new table definition
    */
-  public void commitCreateTable(Table table)
+  void commitCreateTable(Table table)
     throws MetaException;
 
   /**
@@ -66,7 +66,7 @@ public interface HiveMetaHook {
    *
    * @param table table definition
    */
-  public void preDropTable(Table table)
+  void preDropTable(Table table)
     throws MetaException;
 
   /**
@@ -75,7 +75,7 @@ public interface HiveMetaHook {
    *
    * @param table table definition
    */
-  public void rollbackDropTable(Table table)
+  void rollbackDropTable(Table table)
     throws MetaException;
 
   /**
@@ -87,6 +87,6 @@ public interface HiveMetaHook {
    * @param deleteData whether to delete data as well; this should typically
    * be ignored in the case of an external table
    */
-  public void commitDropTable(Table table, boolean deleteData)
+  void commitDropTable(Table table, boolean deleteData)
     throws MetaException;
 }

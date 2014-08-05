@@ -21,9 +21,9 @@ package org.apache.hadoop.hive.ql.plan;
 import java.io.Serializable;
 
 public interface OperatorDesc extends Serializable, Cloneable {
-  public Object clone() throws CloneNotSupportedException;
-  public Statistics getStatistics();
-  public void setStatistics(Statistics statistics);
-  public OpTraits getOpTraits();
-  public void setOpTraits(OpTraits opTraits);
+  Object clone() throws CloneNotSupportedException;
+  Statistics getStatistics();
+  void setStatistics(Statistics statistics);
+  OpTraits getOpTraits();
+  void setOpTraits(OpTraits opTraits);
 }

@@ -122,16 +122,16 @@ public class BucketingSortingCtx implements NodeProcessorCtx {
    * Implementations of this interface should maintain the restriction that the alias
    * getNames().get(i) should have index getIndexes().get(i) in the schema.
    */
-  public static interface BucketSortCol {
+  public interface BucketSortCol {
     // Get a list of aliases for the same column
-    public List<String> getNames();
+    List<String> getNames();
 
     // Get a list of indexes for which the columns in the schema are the same
-    public List<Integer> getIndexes();
+    List<Integer> getIndexes();
 
     // Add an alternative alias for the column this instance represents, and its index in the
     // schema.
-    public void addAlias(String name, Integer index);
+    void addAlias(String name, Integer index);
   }
 
   /**

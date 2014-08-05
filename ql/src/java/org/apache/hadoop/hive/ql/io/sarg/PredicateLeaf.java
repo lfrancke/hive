@@ -29,7 +29,7 @@ public interface PredicateLeaf {
    * The possible operators for predicates. To get the opposites, construct
    * an expression with a not operator.
    */
-  public static enum Operator {
+  enum Operator {
     EQUALS,
     NULL_SAFE_EQUALS,
     LESS_THAN,
@@ -42,7 +42,7 @@ public interface PredicateLeaf {
   /**
    * The possible types for sargs.
    */
-  public static enum Type {
+  enum Type {
     INTEGER, // all of the integer types
     FLOAT,   // float and double
     STRING,  // string, char, varchar
@@ -53,28 +53,28 @@ public interface PredicateLeaf {
   /**
    * Get the operator for the leaf.
    */
-  public Operator getOperator();
+  Operator getOperator();
 
   /**
    * Get the type of the column and literal.
    */
-  public Type getType();
+  Type getType();
 
   /**
    * Get the simple column name.
    * @return the column name
    */
-  public String getColumnName();
+  String getColumnName();
 
   /**
    * Get the literal half of the predicate leaf.
    * @return a Long, Double, or String
    */
-  public Object getLiteral();
+  Object getLiteral();
 
   /**
    * For operators with multiple literals (IN and BETWEEN), get the literals.
    * @return the list of literals (Longs, Doubles, or Strings)
    */
-  public List<Object> getLiteralList();
+  List<Object> getLiteralList();
 }

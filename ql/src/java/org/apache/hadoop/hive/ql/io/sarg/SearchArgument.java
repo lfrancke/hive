@@ -37,7 +37,7 @@ public interface SearchArgument {
   /**
    * The potential result sets of logical operations.
    */
-  public static enum TruthValue {
+  enum TruthValue {
     YES, NO, NULL, YES_NULL, NO_NULL, YES_NO, YES_NO_NULL;
 
     /**
@@ -156,14 +156,14 @@ public interface SearchArgument {
    * list will have the duplicates removed.
    * @return the list of leaf predicates
    */
-  public List<PredicateLeaf> getLeaves();
+  List<PredicateLeaf> getLeaves();
 
   /**
    * Evaluate the entire predicate based on the values for the leaf predicates.
    * @param leaves the value of each leaf predicate
    * @return the value of hte entire predicate
    */
-  public TruthValue evaluate(TruthValue[] leaves);
+  TruthValue evaluate(TruthValue[] leaves);
 
   /**
    * Serialize the SARG as a kyro object and return the base64 string.
@@ -174,13 +174,13 @@ public interface SearchArgument {
    *
    * @return the serialized SARG
    */
-  public String toKryo();
+  String toKryo();
 
   /**
    * A factory for creating SearchArguments. Java doesn't allow static methods
    * in interfaces. *DOH*
    */
-  public static class Factory {
+  class Factory {
     public SearchArgument create(ExprNodeGenericFuncDesc expression) {
       return new SearchArgumentImpl(expression);
     }
@@ -199,32 +199,32 @@ public interface SearchArgument {
    * get a ExprNodeDesc. The user must call startOr, startAnd, or startNot
    * before adding any leaves.
    */
-  public interface Builder {
+  interface Builder {
 
     /**
      * Start building an or operation and push it on the stack.
      * @return this
      */
-    public Builder startOr();
+    Builder startOr();
 
     /**
      * Start building an and operation and push it on the stack.
      * @return this
      */
-    public Builder startAnd();
+    Builder startAnd();
 
     /**
      * Start building a not operation and push it on the stack.
      * @return this
      */
-    public Builder startNot();
+    Builder startNot();
 
     /**
      * Finish the current operation and pop it off of the stack. Each start
      * call must have a matching end.
      * @return this
      */
-    public Builder end();
+    Builder end();
 
     /**
      * Add a less than leaf to the current item on the stack.
@@ -232,7 +232,7 @@ public interface SearchArgument {
      * @param literal the literal
      * @return this
      */
-    public Builder lessThan(String column, Object literal);
+    Builder lessThan(String column, Object literal);
 
     /**
      * Add a less than equals leaf to the current item on the stack.
@@ -240,7 +240,7 @@ public interface SearchArgument {
      * @param literal the literal
      * @return this
      */
-    public Builder lessThanEquals(String column, Object literal);
+    Builder lessThanEquals(String column, Object literal);
 
     /**
      * Add an equals leaf to the current item on the stack.
@@ -248,7 +248,7 @@ public interface SearchArgument {
      * @param literal the literal
      * @return this
      */
-    public Builder equals(String column, Object literal);
+    Builder equals(String column, Object literal);
 
     /**
      * Add a null safe equals leaf to the current item on the stack.
@@ -256,7 +256,7 @@ public interface SearchArgument {
      * @param literal the literal
      * @return this
      */
-    public Builder nullSafeEquals(String column, Object literal);
+    Builder nullSafeEquals(String column, Object literal);
 
     /**
      * Add an in leaf to the current item on the stack.
@@ -264,14 +264,14 @@ public interface SearchArgument {
      * @param literal the literal
      * @return this
      */
-    public Builder in(String column, Object... literal);
+    Builder in(String column, Object... literal);
 
     /**
      * Add an is null leaf to the current item on the stack.
      * @param column the name of the column
      * @return this
      */
-    public Builder isNull(String column);
+    Builder isNull(String column);
 
     /**
      * Add a between leaf to the current item on the stack.
@@ -280,18 +280,18 @@ public interface SearchArgument {
      * @param upper the literal
      * @return this
      */
-    public Builder between(String column, Object lower, Object upper);
+    Builder between(String column, Object lower, Object upper);
 
     /**
      * Build and return the SearchArgument that has been defined. All of the
      * starts must have been ended before this call.
      * @return the new SearchArgument
      */
-    public SearchArgument build();
+    SearchArgument build();
   }
 
   /**
    * Use this instance to create SearchArgument instances.
    */
-  public static final Factory FACTORY = new Factory();
+  Factory FACTORY = new Factory();
 }

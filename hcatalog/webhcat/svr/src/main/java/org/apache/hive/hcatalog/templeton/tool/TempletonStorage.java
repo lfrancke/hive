@@ -44,18 +44,18 @@ import org.apache.hadoop.conf.Configuration;
  */
 public interface TempletonStorage {
   // These are the possible types referenced by 'type' below.
-  public enum Type {
+  enum Type {
     UNKNOWN, JOB, JOBTRACKING, TEMPLETONOVERHEAD
   }
 
-  public static final String STORAGE_CLASS    = "templeton.storage.class";
-  public static final String STORAGE_ROOT     = "templeton.storage.root";
+  String STORAGE_CLASS    = "templeton.storage.class";
+  String STORAGE_ROOT     = "templeton.storage.root";
 
   /**
    * Start the cleanup process for this storage type.
    * @param config
    */
-  public void startCleanup(Configuration config);
+  void startCleanup(Configuration config);
 
   /**
    * Save a single key/value pair for a specific job id.
@@ -64,7 +64,7 @@ public interface TempletonStorage {
    * @param key The name of the field to save
    * @param val The value of the field to save
    */
-  public void saveField(Type type, String id, String key, String val)
+  void saveField(Type type, String id, String key, String val)
     throws NotFoundException;
 
   /**
@@ -76,7 +76,7 @@ public interface TempletonStorage {
    * @return The value of the field requested, or null if not
    * found.
    */
-  public String getField(Type type, String id, String key);
+  String getField(Type type, String id, String key);
 
   /**
    * Get all the name/value pairs stored for this id.
@@ -90,7 +90,7 @@ public interface TempletonStorage {
    * @param id The String id of this data grouping (jobid, etc.)
    * @return A Map of key/value pairs found for this type/id.
    */
-  public Map<String, String> getFields(Type type, String id);
+  Map<String, String> getFields(Type type, String id);
 
   /**
    * Delete a data grouping (all data for a jobid, all tracking data
@@ -102,14 +102,14 @@ public interface TempletonStorage {
    * @return True if successful, false if not, throws NotFoundException
    * if the id wasn't found.
    */
-  public boolean delete(Type type, String id) throws NotFoundException;
+  boolean delete(Type type, String id) throws NotFoundException;
 
   /**
    * Get the id of each data grouping in the storage system.
    *
    * @return An ArrayList<String> of ids.
    */
-  public List<String> getAll();
+  List<String> getAll();
 
   /**
    * Get the id of each data grouping of a given type in the storage
@@ -117,7 +117,7 @@ public interface TempletonStorage {
    * @param type The data type (as listed above)
    * @return An ArrayList<String> of ids.
    */
-  public List<String> getAllForType(Type type);
+  List<String> getAllForType(Type type);
 
   /**
    * Get the id of each data grouping that has the specific key/value
@@ -126,7 +126,7 @@ public interface TempletonStorage {
    * @param value The value of the field to search for
    * @return An ArrayList<String> of ids.
    */
-  public List<String> getAllForKey(String key, String value);
+  List<String> getAllForKey(String key, String value);
 
   /**
    * Get the id of each data grouping of a given type that has the
@@ -136,18 +136,17 @@ public interface TempletonStorage {
    * @param value The value of the field to search for
    * @return An ArrayList<String> of ids.
    */
-  public List<String> getAllForTypeAndKey(Type type, String key,
-                      String value);
+  List<String> getAllForTypeAndKey(Type type, String key, String value);
 
   /**
    * For storage methods that require a connection, this is a hint
    * that it's time to open a connection.
    */
-  public void openStorage(Configuration config) throws IOException;
+  void openStorage(Configuration config) throws IOException;
 
   /**
    * For storage methods that require a connection, this is a hint
    * that it's time to close the connection.
    */
-  public void closeStorage() throws IOException;
+  void closeStorage() throws IOException;
 }

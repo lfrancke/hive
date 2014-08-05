@@ -38,7 +38,7 @@ public interface HiveHistory {
    * RecordTypes.
    *
    */
-  public static enum RecordTypes {
+  enum RecordTypes {
     QueryStart,
     QueryEnd,
     TaskStart,
@@ -47,13 +47,13 @@ public interface HiveHistory {
     SessionStart,
     SessionEnd,
     Counters
-  };
+  }
 
   /**
    * Keys.
    *
    */
-  public static enum Keys {
+  enum Keys {
     SESSION_ID,
     QUERY_ID,
     TASK_ID,
@@ -69,7 +69,7 @@ public interface HiveHistory {
     TASK_NUM_MAPPERS,
     TASK_NUM_REDUCERS,
     ROWS_INSERTED
-  };
+  }
 
   /**
    * Listener interface.
@@ -77,7 +77,7 @@ public interface HiveHistory {
    * the record type and its values
    *
    */
-  public static interface Listener {
+  interface Listener {
 
     void handle(RecordTypes recType, Map<String, String> values) throws IOException;
   }
@@ -86,7 +86,7 @@ public interface HiveHistory {
    * Info.
    *
    */
-  public static class Info {
+  class Info {
 
   }
 
@@ -94,38 +94,37 @@ public interface HiveHistory {
    * SessionInfo.
    *
    */
-  public static class SessionInfo extends Info {
+  class SessionInfo extends Info {
     public String sessionId;
-  };
+  }
 
   /**
    * QueryInfo.
    *
    */
-  public static class QueryInfo extends Info {
+  class QueryInfo extends Info {
     public Map<String, String> hm = new HashMap<String, String>();
     public Map<String, Long> rowCountMap = new HashMap<String, Long>();
-  };
+  }
 
   /**
    * TaskInfo.
    *
    */
-  public static class TaskInfo extends Info {
+  class TaskInfo extends Info {
     public Map<String, String> hm = new HashMap<String, String>();
 
-  };
-
+  }
 
   /**
    * @return historyFileName
    */
-  public String getHistFileName();
+  String getHistFileName();
 
   /**
    * Called at the start of query execution in Driver.execute().
    */
-  public void startQuery(String cmd, String id);
+  void startQuery(String cmd, String id);
 
   /**
    * Used to set query status and other attributes of a query
@@ -134,7 +133,7 @@ public interface HiveHistory {
    * @param propName
    * @param propValue
    */
-  public void setQueryProperty(String queryId, Keys propName, String propValue);
+  void setQueryProperty(String queryId, Keys propName, String propValue);
 
   /**
    * Used to set task properties.
@@ -143,8 +142,7 @@ public interface HiveHistory {
    * @param propName
    * @param propValue
    */
-  public void setTaskProperty(String queryId, String taskId, Keys propName,
-      String propValue);
+  void setTaskProperty(String queryId, String taskId, Keys propName, String propValue);
 
   /**
    * Serialize the task counters and set as a task property.
@@ -153,16 +151,16 @@ public interface HiveHistory {
    * @param taskId
    * @param ctrs
    */
-  public void setTaskCounters(String queryId, String taskId, Counters ctrs);
+  void setTaskCounters(String queryId, String taskId, Counters ctrs);
 
-  public void printRowCount(String queryId);
+  void printRowCount(String queryId);
 
   /**
    * Called at the end of a query
    *
    * @param queryId
    */
-  public void endQuery(String queryId);
+  void endQuery(String queryId);
 
   /**
    * Called at the start of a task. Called by Driver.run() A query can have
@@ -170,15 +168,14 @@ public interface HiveHistory {
    *
    * @param task
    */
-  public void startTask(String queryId, Task<? extends Serializable> task,
-      String taskName);
+  void startTask(String queryId, Task<? extends Serializable> task, String taskName);
 
   /**
    * Called at the end of a task.
    *
    * @param task
    */
-  public void endTask(String queryId, Task<? extends Serializable> task);
+  void endTask(String queryId, Task<? extends Serializable> task);
 
   /**
    * Logs progress of a task if ConfVars.HIVE_LOG_INCREMENTAL_PLAN_PROGRESS is
@@ -186,7 +183,7 @@ public interface HiveHistory {
    *
    * @param task
    */
-  public void progressTask(String queryId, Task<? extends Serializable> task);
+  void progressTask(String queryId, Task<? extends Serializable> task);
 
 
   /**
@@ -194,7 +191,7 @@ public interface HiveHistory {
    * @param plan
    * @throws IOException
    */
-  public void logPlanProgress(QueryPlan plan) throws IOException;
+  void logPlanProgress(QueryPlan plan) throws IOException;
 
 
   /**
@@ -202,12 +199,12 @@ public interface HiveHistory {
    *
    * @param map
    */
-  public void setIdToTableMap(Map<String, String> map);
+  void setIdToTableMap(Map<String, String> map);
 
   /**
    * Close the log file stream
    */
-  public void closeStream();
+  void closeStream();
 
 
 

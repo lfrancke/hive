@@ -29,13 +29,13 @@ public interface ValidTxnList {
    * Key used to store valid txn list in a
    * {@link org.apache.hadoop.conf.Configuration} object.
    */
-  public static final String VALID_TXNS_KEY = "hive.txn.valid.txns";
+  String VALID_TXNS_KEY = "hive.txn.valid.txns";
 
   /**
    * The response to a range query.  NONE means no values in this range match,
    * SOME mean that some do, and ALL means that every value does.
    */
-  public enum RangeResponse {NONE, SOME, ALL};
+  enum RangeResponse {NONE, SOME, ALL};
 
   /**
    * Indicates whether a given transaction has been committed and should be
@@ -43,7 +43,7 @@ public interface ValidTxnList {
    * @param txnid id for the transaction
    * @return true if committed, false otherwise
    */
-  public boolean isTxnCommitted(long txnid);
+  boolean isTxnCommitted(long txnid);
 
   /**
    * Find out if a range of transaction ids have been committed.
@@ -52,31 +52,31 @@ public interface ValidTxnList {
    * @return Indicate whether none, some, or all of these transactions have been
    * committed.
    */
-  public RangeResponse isTxnRangeCommitted(long minTxnId, long maxTxnId);
+  RangeResponse isTxnRangeCommitted(long minTxnId, long maxTxnId);
 
   /**
    * Write this validTxnList into a string. This should produce a string that
    * can be used by {@link #readFromString(String)} to populate a validTxnsList.
    */
-  public String writeToString();
+  String writeToString();
 
   /**
    * Populate this validTxnList from the string.  It is assumed that the string
    * was created via {@link #writeToString()}.
    * @param src source string.
    */
-  public void readFromString(String src);
+  void readFromString(String src);
 
   /**
    * Get the largest committed transaction id.
    * @return largest committed transaction id
    */
-  public long getHighWatermark();
+  long getHighWatermark();
 
   /**
    * Get the list of transactions under the high water mark that are still
    * open.
    * @return a list of open transaction ids
    */
-  public long[] getOpenTransactions();
+  long[] getOpenTransactions();
 }

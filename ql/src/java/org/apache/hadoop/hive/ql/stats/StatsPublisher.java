@@ -37,14 +37,14 @@ public interface StatsPublisher {
    * intermediate stats database.
    * @return true if initialization is successful, false otherwise.
    */
-  public boolean init(Configuration hconf);
+  boolean init(Configuration hconf);
 
   /**
    * This method connects to the intermediate statistics database.
    * @param hconf HiveConf that contains the connection parameters.
    * @return true if connection is successful, false otherwise.
    */
-  public boolean connect(Configuration hconf);
+  boolean connect(Configuration hconf);
 
   /**
    * This method publishes a given statistic into a disk storage, possibly HBase or MySQL.
@@ -61,11 +61,11 @@ public interface StatsPublisher {
    *          and value is a string representing the value for the given statistic
    * @return true if successful, false otherwise
    */
-  public boolean publishStat(String fileID, Map<String, String> stats);
+  boolean publishStat(String fileID, Map<String, String> stats);
 
   /**
    * This method closes the connection to the temporary storage.
    */
-  public boolean closeConnection();
+  boolean closeConnection();
 
 }

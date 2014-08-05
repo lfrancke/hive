@@ -106,18 +106,15 @@ class ZeroCopyShims {
       DirectCompressionType codec) {
     DirectDecompressor decompressor = null;
     switch (codec) {
-    case ZLIB: {
-      decompressor = new ZlibDirectDecompressor();
-    }
-      break;
-    case ZLIB_NOHEADER: {
-      decompressor = new ZlibDirectDecompressor(CompressionHeader.NO_HEADER, 0);
-    }
-      break;
-    case SNAPPY: {
-      decompressor = new SnappyDirectDecompressor();
-    }
-      break;
+      case ZLIB:
+        decompressor = new ZlibDirectDecompressor();
+        break;
+      case ZLIB_NOHEADER:
+        decompressor = new ZlibDirectDecompressor(CompressionHeader.NO_HEADER, 0);
+        break;
+      case SNAPPY:
+        decompressor = new SnappyDirectDecompressor();
+        break;
     }
     if (decompressor != null) {
       return new DirectDecompressorAdapter(decompressor);

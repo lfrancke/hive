@@ -38,40 +38,40 @@ public interface HiveSessionBase {
    * Set the session manager for the session
    * @param sessionManager
    */
-  public void setSessionManager(SessionManager sessionManager);
+  void setSessionManager(SessionManager sessionManager);
 
   /**
    * Get the session manager for the session
    */
-  public SessionManager getSessionManager();
+  SessionManager getSessionManager();
 
   /**
    * Set operation manager for the session
    * @param operationManager
    */
-  public void setOperationManager(OperationManager operationManager);
+  void setOperationManager(OperationManager operationManager);
 
   /**
    * Initialize the session
    * @param sessionConfMap
    */
-  public void initialize(Map<String, String> sessionConfMap);
+  void initialize(Map<String, String> sessionConfMap);
 
-  public SessionHandle getSessionHandle();
+  SessionHandle getSessionHandle();
 
-  public String getUsername();
+  String getUsername();
 
-  public String getPassword();
+  String getPassword();
 
-  public HiveConf getHiveConf();
+  HiveConf getHiveConf();
 
-  public SessionState getSessionState();
+  SessionState getSessionState();
 
-  public String getUserName();
+  String getUserName();
 
-  public void setUserName(String userName);
+  void setUserName(String userName);
 
-  public String getIpAddress();
+  String getIpAddress();
 
-  public void setIpAddress(String ipAddress);
+  void setIpAddress(String ipAddress);
 }

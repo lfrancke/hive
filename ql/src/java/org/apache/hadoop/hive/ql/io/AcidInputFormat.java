@@ -95,7 +95,7 @@ public interface AcidInputFormat<V>
   /**
    * Options for controlling the record readers.
    */
-  public static class Options {
+  class Options {
     private final Configuration conf;
     private Reporter reporter;
 
@@ -126,9 +126,9 @@ public interface AcidInputFormat<V>
     }
   }
 
-  public static interface RowReader<V>
+  interface RowReader<V>
       extends RecordReader<RecordIdentifier, V> {
-    public ObjectInspector getObjectInspector();
+    ObjectInspector getObjectInspector();
   }
 
   /**
@@ -140,12 +140,11 @@ public interface AcidInputFormat<V>
    * @return a record reader
    * @throws IOException
    */
-  public RowReader<V> getReader(InputSplit split,
-                                Options options) throws IOException;
+  RowReader<V> getReader(InputSplit split, Options options) throws IOException;
 
-  public static interface RawReader<V>
+  interface RawReader<V>
       extends RecordReader<RecordIdentifier, V> {
-    public ObjectInspector getObjectInspector();
+    ObjectInspector getObjectInspector();
   }
 
   /**

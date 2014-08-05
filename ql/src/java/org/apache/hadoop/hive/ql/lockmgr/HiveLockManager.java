@@ -27,28 +27,33 @@ import java.util.List;
  */
 public interface HiveLockManager {
 
-  public void setContext(HiveLockManagerCtx ctx) throws LockException;
+  void setContext(HiveLockManagerCtx ctx) throws LockException;
 
   /**
-   * @param key        object to be locked
-   * @param mode       mode of the lock (SHARED/EXCLUSIVE)
-   * @param keepAlive  if the lock needs to be persisted after the statement
+   * @param key       object to be locked
+   * @param mode      mode of the lock (SHARED/EXCLUSIVE)
+   * @param keepAlive if the lock needs to be persisted after the statement
    */
-  public HiveLock lock(HiveLockObject key, HiveLockMode mode,
-      boolean keepAlive) throws LockException;
-  public List<HiveLock> lock(List<HiveLockObj> objs,
-      boolean keepAlive) throws LockException;
-  public void unlock(HiveLock hiveLock) throws LockException;
-  public void releaseLocks(List<HiveLock> hiveLocks);
+  HiveLock lock(HiveLockObject key, HiveLockMode mode, boolean keepAlive) throws LockException;
 
-  public List<HiveLock> getLocks(boolean verifyTablePartitions, boolean fetchData) throws LockException;
-  public List<HiveLock> getLocks(HiveLockObject key, boolean verifyTablePartitions, boolean fetchData) throws LockException;
-  public void close() throws LockException;
-  public void prepareRetry() throws LockException;
+  List<HiveLock> lock(List<HiveLockObj> objs, boolean keepAlive) throws LockException;
+
+  void unlock(HiveLock hiveLock) throws LockException;
+
+  void releaseLocks(List<HiveLock> hiveLocks);
+
+  List<HiveLock> getLocks(boolean verifyTablePartitions, boolean fetchData) throws LockException;
+
+  List<HiveLock> getLocks(HiveLockObject key, boolean verifyTablePartitions, boolean fetchData)
+    throws LockException;
+
+  void close() throws LockException;
+
+  void prepareRetry() throws LockException;
 
   /**
    * refresh to enable new configurations.
    */
-  public void refresh();
+  void refresh();
 
 }
