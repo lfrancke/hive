@@ -54,16 +54,6 @@ public class JavaHiveVarcharObjectInspector extends AbstractPrimitiveJavaObjectI
     return getWritableWithParams((HiveVarchar) o);
   }
 
-  private HiveVarchar getPrimitiveWithParams(HiveVarchar val) {
-    return new HiveVarchar(val, getMaxLength());
-  }
-
-  private HiveVarcharWritable getWritableWithParams(HiveVarchar val) {
-    HiveVarcharWritable newValue = new HiveVarcharWritable();
-    newValue.set(val, getMaxLength());
-    return newValue;
-  }
-
   @Override
   public Object set(Object o, HiveVarchar value) {
     if (BaseCharUtils.doesPrimitiveMatchTypeParams(value, (VarcharTypeInfo) typeInfo)) {
@@ -87,6 +77,16 @@ public class JavaHiveVarcharObjectInspector extends AbstractPrimitiveJavaObjectI
   public int getMaxLength() {
     VarcharTypeInfo ti = (VarcharTypeInfo) typeInfo;
     return ti.getLength();
+  }
+
+  private HiveVarchar getPrimitiveWithParams(HiveVarchar val) {
+    return new HiveVarchar(val, getMaxLength());
+  }
+
+  private HiveVarcharWritable getWritableWithParams(HiveVarchar val) {
+    HiveVarcharWritable newValue = new HiveVarcharWritable();
+    newValue.set(val, getMaxLength());
+    return newValue;
   }
 
 }
