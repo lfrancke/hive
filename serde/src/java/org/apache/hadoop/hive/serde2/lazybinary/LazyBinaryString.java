@@ -29,11 +29,10 @@ import org.apache.hadoop.io.Text;
  * this object.
  * 
  */
-public class LazyBinaryString extends
-    LazyBinaryPrimitive<WritableStringObjectInspector, Text> {
+public class LazyBinaryString extends LazyBinaryPrimitive<WritableStringObjectInspector, Text> {
 
-  LazyBinaryString(WritableStringObjectInspector OI) {
-    super(OI);
+  LazyBinaryString(WritableStringObjectInspector oi) {
+    super(oi);
     data = new Text();
   }
 
@@ -44,7 +43,17 @@ public class LazyBinaryString extends
 
   @Override
   public void init(ByteArrayRef bytes, int start, int length) {
-    assert (length > -1);
-    data.set(bytes.getData(), start, length);
+    assert length > -1;
+
+    // If we don't check this here Text#set will fail with a ArrayIndexOutOfBoundsException
+    // which doesn't have a lot of details
+    byte[] bytesData = bytes.getData();
+    if (start + length > bytesData.length - 1 || length < 0) {
+      throw new IndexOutOfBoundsException("Tried to init with start: " + start
+                                          + ", length: " + length
+                                          + ", length of data: " + bytesData.length);
+    }
+
+    data.set(bytesData, start, length);
   }
 }
